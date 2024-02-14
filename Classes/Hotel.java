@@ -1,5 +1,7 @@
 package tcd;
 
+import java.util.Date;
+
 class Hotel extends Empresa
 {
 	private int numEstrelas;
@@ -14,11 +16,85 @@ class Hotel extends Empresa
 	private String msgDivulg;
 	private String desc;
 	private String cidade;
-	private double taxa;
+	final static double taxa = 0.05;
 	private Quarto qluxo;
 	private Quarto qstandartS;
 	private Quarto qstandartD;
 	private Quarto qstandartT;
+	private Date dataPoliticaCancelamento;
+    private boolean cancelamentoAceito;
+    
+    
+    
+	public Date getDataPoliticaCancelamento() {
+		return dataPoliticaCancelamento;
+	}
+
+
+
+	public void setDataPoliticaCancelamento(Date dataPoliticaCancelamento) {
+		this.dataPoliticaCancelamento = dataPoliticaCancelamento;
+	}
+
+
+
+	public boolean isCancelamentoAceito() {
+		return cancelamentoAceito;
+	}
+
+
+
+	public void setCancelamentoAceito(boolean cancelamentoAceito) {
+		this.cancelamentoAceito = cancelamentoAceito;
+	}
+
+
+
+	public Quarto getQluxo() {
+		return qluxo;
+	}
+
+
+
+	public void setQluxo(Quarto qluxo) {
+		this.qluxo = qluxo;
+	}
+
+
+
+	public Quarto getQstandartS() {
+		return qstandartS;
+	}
+
+
+
+	public void setQstandartS(Quarto qstandartS) {
+		this.qstandartS = qstandartS;
+	}
+
+
+
+	public Quarto getQstandartD() {
+		return qstandartD;
+	}
+
+
+
+	public void setQstandartD(Quarto qstandartD) {
+		this.qstandartD = qstandartD;
+	}
+
+
+
+	public Quarto getQstandartT() {
+		return qstandartT;
+	}
+
+
+
+	public void setQstandartT(Quarto qstandartT) {
+		this.qstandartT = qstandartT;
+	}
 	
 	
 	
@@ -177,31 +253,30 @@ class Hotel extends Empresa
 	}
 
 
-
-	public Hotel(String CNPJ, String nome, String nomeDivulg, int diaCria, int mesCria, int anoCria, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep, int numEstrelas, int accPet, int numQuartos, int horaCheckin, int minCheckin, int horaCheckout, int minCheckout, String msgDivulg, String desc, String cidade)
+	public Hotel(String CNPJ, String nome, String nomeDivulg, int diaCria, int mesCria, int anoCria, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep, int numEstrelas, int accPet, int numQuartos, int horaCheckin, int minCheckin, int horaCheckout, int minCheckout, String msgDivulg, String desc, String cidade, int diaCheckin, int diaCheckout, int mesCheckin, int mesCheckout, int anoCheckin, int anoCheckout)
 	{
 		super(CNPJ, nome, nomeDivulg, diaCria, mesCria, anoCria, endLogradouro, endNumero, endBairro, endCidade, endUf, endCep);
 		
 		if(numEstrelas>0 && numEstrelas<=5) this.numEstrelas = numEstrelas;
-		else numEstrelas = 0;
+		else numEstrelas = -1;
 		
 		this.accPet = accPet;
 		
 		this.numQuartos = numQuartos;
 		
 		if(horaCheckin > 0 && horaCheckin <60) this.horaCheckin = horaCheckin;
-		else this.horaCheckin = 0;
+		else this.horaCheckin = -1;
 		
 		if(minCheckin > 0 && minCheckin <60) this.minCheckin = minCheckin;
-		else this.minCheckin = 0;
+		else this.minCheckin = -1;
 		
 		this.segCheckin = 0;
 		
 		if(horaCheckout > 0 && horaCheckout <60) this.horaCheckout = horaCheckout;
-		else this.horaCheckout = 0;
+		else this.horaCheckout = -1;
 		
 		if(minCheckout > 0 && minCheckout <60) this.minCheckout = minCheckout;
-		else this.minCheckout = 0;
+		else this.minCheckout = -1;
 		
 		this.segCheckout = 0;
 		
@@ -223,7 +298,6 @@ class Hotel extends Empresa
 		}
 		else this.cidade = null;
 		
-		this.taxa = 5.00;
 	}
 	
 	public void registrarQuarto(double diariaSdesc, double desconto, double diariaCdesc, int quantidade, int opcao) 
@@ -248,4 +322,19 @@ class Hotel extends Empresa
                 return;
         }
     }
+	
+    
+
+    public boolean CancelamentoAceito(Date data) 
+    {
+        return data.equals(dataPoliticaCancelamento) && cancelamentoAceito;
+    }
+
+    public void definirPoliticaCancelamento(Date data, boolean cancelamentoAceito) 
+    {
+        this.dataPoliticaCancelamento = data;
+        this.cancelamentoAceito = cancelamentoAceito;
+    }
+	
+
 }
