@@ -14,9 +14,26 @@ class Hotel extends Empresa
 	private String msgDivulg;
 	private String desc;
 	private String cidade;
+	private double taxa;
+	private Quarto qluxo;
+	private Quarto qstandartS;
+	private Quarto qstandartD;
+	private Quarto qstandartT;
 	
 	
 	
+	public double getTaxa() {
+		return taxa;
+	}
+
+
+
+	public void setTaxa(double taxa) {
+		this.taxa = taxa;
+	}
+
+
+
 	public int getNumEstrelas() {
 		return numEstrelas;
 	}
@@ -205,5 +222,30 @@ class Hotel extends Empresa
 			this.cidade = cidade;
 		}
 		else this.cidade = null;
+		
+		this.taxa = 5.00;
 	}
+	
+	public void registrarQuarto(double diariaSdesc, double desconto, double diariaCdesc, int quantidade, int opcao) 
+	{
+        Quarto quarto = new Quarto(diariaSdesc, desconto, diariaCdesc, quantidade);
+        
+        switch (opcao) 
+        {
+            case 1:
+                qluxo = quarto;
+                break;
+            case 2:
+                qstandartS = quarto;
+                break;
+            case 3:
+                qstandartD = quarto;
+                break;
+            case 4:
+                qstandartT = quarto;
+                break;
+            default:
+                return;
+        }
+    }
 }
