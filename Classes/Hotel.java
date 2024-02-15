@@ -1,18 +1,16 @@
 package tcd;
 
 import java.util.Date;
+import java.time.LocalTime;
+import java.util.Calendar;
 
 class Hotel extends Empresa
 {
 	private int numEstrelas;
 	private int accPet;
 	private int numQuartos;
-	private int horaCheckin;
-	private int minCheckin;
-	private int segCheckin;
-	private int horaCheckout;
-	private int minCheckout;
-	private int segCheckout;
+	private LocalTime horaCheckin;
+	private LocalTime horaCheckout;
 	private String msgDivulg;
 	private String desc;
 	private String cidade;
@@ -24,28 +22,26 @@ class Hotel extends Empresa
 	private Date dataPoliticaCancelamento;
     private boolean cancelamentoAceito;
     
-    
-    
-	public Date getDataPoliticaCancelamento() {
-		return dataPoliticaCancelamento;
+	public LocalTime getHoraCheckin() {
+		return horaCheckin;
 	}
 
 
 
-	public void setDataPoliticaCancelamento(Date dataPoliticaCancelamento) {
-		this.dataPoliticaCancelamento = dataPoliticaCancelamento;
+	public void setHoraCheckin(LocalTime horaCheckin) {
+		this.horaCheckin = horaCheckin;
 	}
 
 
 
-	public boolean isCancelamentoAceito() {
-		return cancelamentoAceito;
+	public LocalTime getHoraCheckout() {
+		return horaCheckout;
 	}
 
 
 
-	public void setCancelamentoAceito(boolean cancelamentoAceito) {
-		this.cancelamentoAceito = cancelamentoAceito;
+	public void setHoraCheckout(LocalTime horaCheckout) {
+		this.horaCheckout = horaCheckout;
 	}
 
 
@@ -95,19 +91,35 @@ class Hotel extends Empresa
 	public void setQstandartT(Quarto qstandartT) {
 		this.qstandartT = qstandartT;
 	}
-	
+
+
+
+	public Date getDataPoliticaCancelamento() {
+		return dataPoliticaCancelamento;
+	}
+
+
+
+	public void setDataPoliticaCancelamento(Date dataPoliticaCancelamento) {
+		this.dataPoliticaCancelamento = dataPoliticaCancelamento;
+	}
+
+
+
+	public boolean isCancelamentoAceito() {
+		return cancelamentoAceito;
+	}
+
+
+
+	public void setCancelamentoAceito(boolean cancelamentoAceito) {
+		this.cancelamentoAceito = cancelamentoAceito;
+	}
 	
 	
 	public double getTaxa() {
 		return taxa;
 	}
-
-
-
-	public void setTaxa(double taxa) {
-		this.taxa = taxa;
-	}
-
 
 
 	public int getNumEstrelas() {
@@ -117,7 +129,8 @@ class Hotel extends Empresa
 
 
 	public void setNumEstrelas(int numEstrelas) {
-		this.numEstrelas = numEstrelas;
+		if(numEstrelas>0 && numEstrelas<=5) this.numEstrelas = numEstrelas;
+		else numEstrelas = -1;
 	}
 
 
@@ -129,7 +142,8 @@ class Hotel extends Empresa
 
 
 	public void setAccPet(int accPet) {
-		this.accPet = accPet;
+		if(accPet == 0 || accPet == 1) this.accPet = accPet;
+		else this.accPet = -1;
 	}
 
 
@@ -141,82 +155,9 @@ class Hotel extends Empresa
 
 
 	public void setNumQuartos(int numQuartos) {
-		this.numQuartos = numQuartos;
+		if(numQuartos>0) this.numQuartos = numQuartos;
+		else this.numQuartos = -1;
 	}
-
-
-
-	public int getHoraCheckin() {
-		return horaCheckin;
-	}
-
-
-
-	public void setHoraCheckin(int horaCheckin) {
-		this.horaCheckin = horaCheckin;
-	}
-
-
-
-	public int getMinCheckin() {
-		return minCheckin;
-	}
-
-
-
-	public void setMinCheckin(int minCheckin) {
-		this.minCheckin = minCheckin;
-	}
-
-
-
-	public int getSegCheckin() {
-		return segCheckin;
-	}
-
-
-
-	public void setSegCheckin(int segCheckin) {
-		this.segCheckin = segCheckin;
-	}
-
-
-
-	public int getHoraCheckout() {
-		return horaCheckout;
-	}
-
-
-
-	public void setHoraCheckout(int horaCheckout) {
-		this.horaCheckout = horaCheckout;
-	}
-
-
-
-	public int getMinCheckout() {
-		return minCheckout;
-	}
-
-
-
-	public void setMinCheckout(int minCheckout) {
-		this.minCheckout = minCheckout;
-	}
-
-
-
-	public int getSegCheckout() {
-		return segCheckout;
-	}
-
-
-
-	public void setSegCheckout(int segCheckout) {
-		this.segCheckout = segCheckout;
-	}
-
-
 
 	public String getMsgDivulg() {
 		return msgDivulg;
@@ -225,7 +166,11 @@ class Hotel extends Empresa
 
 
 	public void setMsgDivulg(String msgDivulg) {
-		this.msgDivulg = msgDivulg;
+		if (msgDivulg != null && !msgDivulg.isEmpty()) 
+		{
+			this.msgDivulg = msgDivulg;
+		}
+		else this.msgDivulg = null;
 	}
 
 
@@ -237,7 +182,11 @@ class Hotel extends Empresa
 
 
 	public void setDesc(String desc) {
-		this.desc = desc;
+		if (desc != null && !desc.isEmpty()) 
+		{
+			this.desc = desc;
+		}
+		else this.desc = null;
 	}
 
 
@@ -249,54 +198,24 @@ class Hotel extends Empresa
 
 
 	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-
-
-	public Hotel(String CNPJ, String nome, String nomeDivulg, int diaCria, int mesCria, int anoCria, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep, int numEstrelas, int accPet, int numQuartos, int horaCheckin, int minCheckin, int horaCheckout, int minCheckout, String msgDivulg, String desc, String cidade, int diaCheckin, int diaCheckout, int mesCheckin, int mesCheckout, int anoCheckin, int anoCheckout)
-	{
-		super(CNPJ, nome, nomeDivulg, diaCria, mesCria, anoCria, endLogradouro, endNumero, endBairro, endCidade, endUf, endCep);
-		
-		if(numEstrelas>0 && numEstrelas<=5) this.numEstrelas = numEstrelas;
-		else numEstrelas = -1;
-		
-		this.accPet = accPet;
-		
-		this.numQuartos = numQuartos;
-		
-		if(horaCheckin > 0 && horaCheckin <60) this.horaCheckin = horaCheckin;
-		else this.horaCheckin = -1;
-		
-		if(minCheckin > 0 && minCheckin <60) this.minCheckin = minCheckin;
-		else this.minCheckin = -1;
-		
-		this.segCheckin = 0;
-		
-		if(horaCheckout > 0 && horaCheckout <60) this.horaCheckout = horaCheckout;
-		else this.horaCheckout = -1;
-		
-		if(minCheckout > 0 && minCheckout <60) this.minCheckout = minCheckout;
-		else this.minCheckout = -1;
-		
-		this.segCheckout = 0;
-		
-		if (msgDivulg != null && !msgDivulg.isEmpty()) 
-		{
-			this.msgDivulg = msgDivulg;
-		}
-		else this.msgDivulg = null;
-		
-		if (desc != null && !desc.isEmpty()) 
-		{
-			this.desc = desc;
-		}
-		else this.desc = null;
-		
 		if (cidade != null && !cidade.isEmpty()) 
 		{
 			this.cidade = cidade;
 		}
 		else this.cidade = null;
+	}
+
+
+	public Hotel(String CNPJ, String nome, String nomeDivulg, int diaCria, int mesCria, int anoCria, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep, int numEstrelas, int accPet, int numQuartos, String msgDivulg, String desc, String cidade)
+	{
+		super(CNPJ, nome, nomeDivulg, diaCria, mesCria, anoCria, endLogradouro, endNumero, endBairro, endCidade, endUf, endCep);
+		
+		setNumEstrelas(numEstrelas);
+		setAccPet(accPet);
+		setNumQuartos(numQuartos);
+		setMsgDivulg(msgDivulg);
+		setDesc(desc);
+		setCidade(cidade);
 		
 	}
 	
@@ -325,10 +244,18 @@ class Hotel extends Empresa
 	
     
 
-    public boolean CancelamentoAceito(Date data) 
-    {
-        return data.equals(dataPoliticaCancelamento) && cancelamentoAceito;
-    }
+	public boolean CancelamentoAceito(Date data) {
+	    Calendar cal1 = Calendar.getInstance();
+	    cal1.setTime(data);
+	    
+	    Calendar cal2 = Calendar.getInstance();
+	    cal2.setTime(dataPoliticaCancelamento);
+	    
+	    return cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR) &&
+	           cal1.get(Calendar.MONTH) == cal2.get(Calendar.MONTH) &&
+	           cal1.get(Calendar.DAY_OF_MONTH) == cal2.get(Calendar.DAY_OF_MONTH) &&
+	           cancelamentoAceito;
+	}
 
     public void definirPoliticaCancelamento(Date data, boolean cancelamentoAceito) 
     {
