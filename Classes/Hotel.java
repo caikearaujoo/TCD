@@ -1,11 +1,10 @@
-package tcd;
-
 import java.util.Date;
 import java.time.LocalTime;
 import java.util.Calendar;
 
 class Hotel extends Empresa
 {
+
 	private int numEstrelas;
 	private int accPet;
 	private int numQuartos;
@@ -26,10 +25,29 @@ class Hotel extends Empresa
 		return horaCheckin;
 	}
 
-
-
-	public void setHoraCheckin(LocalTime horaCheckin) {
-		this.horaCheckin = horaCheckin;
+	public void setHoraCheckin(int hCheckin,int minCheckin,int segCheckin) {
+		if((hCheckin<0) || (hCheckin>23)) {
+			hCheckin = -1;
+			minCheckin = -1;
+			segCheckin = -1;
+		}
+		
+		if((minCheckin<0) || (minCheckin>59)) {
+			hCheckin = -1;
+			minCheckin = -1;
+			segCheckin = -1;
+		}
+		
+		if((segCheckin<0) || (segCheckin>59)) {
+			hCheckin = -1;
+			minCheckin = -1;
+			segCheckin = -1;
+		}
+		
+		if((hCheckin != -1) && (minCheckin!= -1) && (segCheckin != -1)) {
+        	this.horaCheckin = LocalTime.of(hCheckin, minCheckin, segCheckin);
+        }
+	}
 	}
 
 
@@ -40,8 +58,29 @@ class Hotel extends Empresa
 
 
 
-	public void setHoraCheckout(LocalTime horaCheckout) {
-		this.horaCheckout = horaCheckout;
+	public void setHoraCheckout(int hCheckout,int minCheckout,int segCheckout) {
+		if((hCheckout<0) || (hCheckout>23)) {
+			hCheckout = -1;
+			minCheckout = -1;
+			segCheckout = -1;
+		}
+		
+		if((minCheckout<0) || (minCheckout>59)) {
+			hCheckout = -1;
+			minCheckout = -1;
+			segCheckout = -1;
+		}
+		
+		if((segCheckout<0) || (segCheckout>59)) {
+			hCheckout = -1;
+			minCheckout = -1;
+			segCheckout = -1;
+		}
+		
+		if((hCheckout != -1) && (minCheckout!= -1) && (segCheckout != -1)) {
+        	this.horaCheckin = LocalTime.of(hCheckout, minCheckout, segCheckout);
+        }
+	}
 	}
 
 
@@ -194,9 +233,22 @@ class Hotel extends Empresa
 	public String getCidade() {
 		return cidade;
 	}
-
-
-
+	
+	public Hotel(String CNPJ, String nome, String nomeDivulg, String endLogradouro, int diaCria, int mesCria,
+			int anoCria, int endNumero, String endBairro, String endCidade, String endUf, String endCep,int numEstrelas,int accPet,int numQuartos,String msgDivulg,String desc,String cidade,int hCheckin,int minCheckin,int segCheckin,int hCheckout,int minCheckout,int segCheckout) {
+		
+		super(CNPJ, nome, nomeDivulg, endLogradouro, diaCria, mesCria, anoCria, endNumero, endBairro, endCidade, endUf, endCep);
+		
+		setNumEstrelas(numEstrelas);
+		setAccPet(accPet);
+		setNumQuartos(numQuartos);
+		setMsgDivulg(msgDivulg);
+		setDesc(desc);
+		setCidade(cidade);
+		setHoraCheckin(hCheckin,minCheckin,segCheckin);
+		setHoraCheckout(hCheckout,minCheckout,segCheckout);
+	}
+	
 	public void setCidade(String cidade) {
 		if (cidade != null && !cidade.isEmpty()) 
 		{
@@ -206,18 +258,7 @@ class Hotel extends Empresa
 	}
 
 
-	public Hotel(String CNPJ, String nome, String nomeDivulg, Date dataCria, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep, int numEstrelas, int accPet, int numQuartos, String msgDivulg, String desc, String cidade)
-	{
-		super(CNPJ, nome, nomeDivulg, dataCria, endLogradouro, endNumero, endBairro, endCidade, endUf, endCep);
-		
-		setNumEstrelas(numEstrelas);
-		setAccPet(accPet);
-		setNumQuartos(numQuartos);
-		setMsgDivulg(msgDivulg);
-		setDesc(desc);
-		setCidade(cidade);
-		
-	}
+	
 	
 	public void registrarQuarto(double diariaSdesc, double desconto, double diariaCdesc, int quantidade, int opcao) 
 	{
