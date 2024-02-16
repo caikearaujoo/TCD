@@ -206,9 +206,9 @@ class Hotel extends Empresa
 	}
 
 
-	public Hotel(String CNPJ, String nome, String nomeDivulg, int diaCria, int mesCria, int anoCria, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep, int numEstrelas, int accPet, int numQuartos, String msgDivulg, String desc, String cidade)
+	public Hotel(String CNPJ, String nome, String nomeDivulg, Date dataCria, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep, int numEstrelas, int accPet, int numQuartos, String msgDivulg, String desc, String cidade)
 	{
-		super(CNPJ, nome, nomeDivulg, diaCria, mesCria, anoCria, endLogradouro, endNumero, endBairro, endCidade, endUf, endCep);
+		super(CNPJ, nome, nomeDivulg, dataCria, endLogradouro, endNumero, endBairro, endCidade, endUf, endCep);
 		
 		setNumEstrelas(numEstrelas);
 		setAccPet(accPet);
