@@ -14,7 +14,7 @@ class Hotel extends Empresa
 	private String msgDivulg;
 	private String desc;
 	private String cidade;
-	final static double taxa = 0.05;
+	private final static double taxa = 0.05;
 	private Quarto qluxo;
 	private Quarto qstandartS;
 	private Quarto qstandartD;
