@@ -11,13 +11,13 @@ public class Trechos {
 	private Voos[] voos; //Voo específico do trecho
 	private int contadorVoos;
 	
-	public Trechos(String cod,String origem,String destino,LocalTime horaSaida,LocalTime horaChegada,CompanhiaAerea nomeCompA) {
+	public Trechos(String cod,String origem,String destino,int hSaida,int minSaida,int segSaida,int hChegada,int minChegada,int segChegada,CompanhiaAerea nomeCompA) {
 		
 		setCod(cod);
 		setOrigem(origem);
 		setDestino(destino);
-		setHoraSaida(horaSaida);
-		setHoraChegada(horaChegada);
+		setHoraSaida(hSaida,minSaida,segSaida);
+		setHoraChegada(hChegada,minChegada,segChegada);
 		setNomeCompA(nomeCompA);
 		setVoo(); //Cria vetor de voos	
 	}
@@ -94,16 +94,58 @@ public class Trechos {
 		return horaSaida;
 	}
 
-	public void setHoraSaida(LocalTime horaSaida) {
-		this.horaSaida = horaSaida;
+	public void setHoraSaida(int hSaida,int minSaida,int segSaida) {
+		if((hSaida<0) || (hSaida>23)) {
+			hSaida = -1;
+			minSaida = -1;
+			segSaida = -1;
+		}
+		
+		if((minSaida<0) || (minSaida>59)) {
+			hSaida = -1;
+			minSaida = -1;
+			segSaida = -1;
+		}
+		
+		if((segSaida<0) || (segSaida>59)) {
+			hSaida = -1;
+			minSaida = -1;
+			segSaida = -1;
+		}
+		
+		if((hSaida != -1) && (minSaida!= -1) && (segSaida != -1)) {
+        	this.horaSaida = LocalTime.of(hSaida, minSaida, segSaida);
+        }
+		
+		
 	}
 
 	public LocalTime getHoraChegada() {
 		return horaChegada;
 	}
 
-	public void setHoraChegada(LocalTime horaChegada) {
-		this.horaChegada = horaChegada;
+	public void setHoraChegada(int hChegada,int minChegada,int segChegada) {
+		if((hChegada<0) || (hChegada>23)) {
+			hChegada = -1;
+			minChegada = -1;
+			segChegada = -1;
+		}
+		
+		if((minChegada<0) || (minChegada>59)) {
+			hChegada = -1;
+			minChegada = -1;
+			segChegada = -1;
+		}
+		
+		if((segChegada<0) || (segChegada>59)) {
+			hChegada = -1;
+			minChegada = -1;
+			segChegada = -1;
+		}
+		
+		if((hChegada != -1) && (minChegada!= -1) && (segChegada != -1)) {
+        	this.horaChegada = LocalTime.of(hChegada, minChegada, segChegada);
+        }
 	}
 
 	public CompanhiaAerea getNomeCompA() {
