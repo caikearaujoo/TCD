@@ -92,6 +92,7 @@ public class Cliente extends Pessoa {
 	}
 	
 	public void setNumCompras(int numCompras) {
-		this.numCompras = numCompras;
+		if (numCompras >= 0) this.numCompras = numCompras;
+		else this.numCompras = -1;
 	}
 }
