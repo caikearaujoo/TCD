@@ -11,10 +11,10 @@ public class FuncEspecial extends Funcionario{
 		this.bonusSal = bonusSal;
 	}
 	
-	public Hotel registraHotel(String CNPJ, String nome, String nomeDivulg, int diaCria, int mesCria, int anoCria, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep, int numEstrelas, int accPet, int numQuartos, String msgDivulg, String desc, String cidade)
-	{
-		Hotel h = new Hotel(CNPJ, nome, nomeDivulg, diaCria, mesCria, anoCria, endLogradouro, endNumero, endBairro, endCidade, endUf, endCep, numEstrelas, accPet, numQuartos, msgDivulg, desc, cidade);
-		numHotelRegistrado++;
-		return h;
+	public Hotel registraHotel(String CNPJ, String nome, String nomeDivulg, int diaCria, int mesCria, int anoCria, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep, int numEstrelas, int accPet, int numQuartos, String msgDivulg, String desc, String cidade, int hCheckin, int minCheckin, int segCheckin, int hCheckout, int minCheckout, int segCheckout) {
+	    Hotel h = new Hotel(CNPJ, nome, nomeDivulg, endLogradouro, diaCria, mesCria, anoCria, endNumero, endBairro, endCidade, endUf, endCep, numEstrelas, accPet, numQuartos, msgDivulg, desc, cidade, hCheckin, minCheckin, segCheckin, hCheckout, minCheckout, segCheckout);
+	    numHotelRegistrado = numHotelRegistrado + 1;
+	    return h;
 	}
+
 }
