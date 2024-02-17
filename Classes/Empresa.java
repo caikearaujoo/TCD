@@ -1,12 +1,12 @@
 import meuPacote.ValidaCNPJ;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Empresa {
 	
 	private String CNPJ; //Definido por meio de um método auxiliar com o uso do pacote ValidaCNPJ
 	private String nome;
 	private String nomeDivulg;
-	private Date dataCria;
+	private LocalDate dataCria;
 	private String endLogradouro;
 	private int endNumero;
 	private String endBairro;
@@ -14,7 +14,7 @@ public class Empresa {
 	private String endUf;
 	private String endCep;
 	
-	public Empresa(String CNPJ,String nome, String nomeDivulg,Date dataCria, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep)
+	public Empresa(String CNPJ,String nome, String nomeDivulg, String endLogradouro,int diaCria,int mesCria,int anoCria, int endNumero, String endBairro, String endCidade, String endUf, String endCep)
 	{
 		setCNPJ(CNPJ);
 		
@@ -22,8 +22,6 @@ public class Empresa {
 		
 		setNomeDivulg(nomeDivulg);
 		
-		setDataCria(dataCria);
-       
 		setEndLogradouro(endLogradouro); //Pode ser o que ele quiser
 		setEndNumero(endNumero); //Pode ser o que ele quiser
 		setEndBairro(endBairro); //Pode ser o que ele quiser
@@ -32,6 +30,8 @@ public class Empresa {
 		setEndUf(endUf);
 		
 		setEndCep(endCep);
+		
+		setDataCria(diaCria,mesCria,anoCria);
 	}
 	
 	public String getEndLogradouro() {
@@ -85,7 +85,7 @@ public class Empresa {
 	
 	public void setEndCep(String endCep) {
 		
-		if(endCep.length()==9) {
+		if(endCep.length()==8) {
 			this.endCep = endCep;
 		} else {
 			this.endCep = null;
@@ -123,12 +123,55 @@ public class Empresa {
 		}
 	}
 
-	public Date getDataCria() {
+	public LocalDate getDataCria() {
 		return dataCria;
 	}
 
-	public void setDataCria(Date dataCria) {
-		this.dataCria = dataCria;
+	public void setDataCria(int diaCria,int mesCria,int anoCria) {
+		
+		if(anoCria>=2024) {
+			diaCria = -1;
+			mesCria = -1;
+			anoCria = -1;
+		}
+        
+        if(mesCria<0 && mesCria>13) {
+        	diaCria = -1;
+			mesCria = -1;
+			anoCria = -1;
+        }
+        
+        if (diaCria < 0) {
+            diaCria = -1;
+            mesCria = -1;
+            anoCria = -1;
+        }
+        
+        if(mesCria == 2 && (anoCria % 4 == 0) && ((anoCria % 100 != 0) || (anoCria % 400 == 0)))
+        {
+            if(diaCria<0 && diaCria>29) {
+            	diaCria = -1;
+    			mesCria = -1;
+    			anoCria = -1;
+            }
+        }
+        else if(mesCria == 2 && diaCria<0 && diaCria>28) {
+        		diaCria = -1;
+        		mesCria = -1;
+        		anoCria = -1;
+        }
+        else if(diaCria<0 && diaCria>31) {
+        		diaCria = -1;
+        		mesCria = -1;
+        		anoCria = -1;
+        }
+        
+        if((diaCria != -1) && (mesCria!= -1) && (anoCria != -1)) {
+        	this.dataCria = LocalDate.of(anoCria, mesCria, diaCria);
+        }
+        
+        
+        
 	}
 	
 }
