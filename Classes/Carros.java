@@ -1,5 +1,6 @@
 package tcd;
 
+import meuPacote.verificaPlaca;
 import java.time.LocalTime;
 import java.time.LocalDate;
 public class Carros 
@@ -29,6 +30,7 @@ public class Carros
 	private int mesDevolucao;
 	private int anoDevolucao;
     private LocalTime tempoDevolucao;
+    private String placa;
 	
     public void setTempoRetirada(int horaRetirada,int minChegada,int segChegada) {
         if((horaRetirada<0) || (horaRetirada>23)) {
@@ -265,7 +267,11 @@ public class Carros
         }        
     }
 	
-	public Carros(String modelo, String marca, double motor, int numAssentos, String tipo, double diariaSDesc, double diariaCDesc, double desconto, int diaRetirada, int mesRetirada, int anoRetirada, int diaDevolucao, int mesDevolucao, int anoDevolucao, int horaRetirada, int minRetirada, int segRetirada)
+	public void setPlaca(String placa){
+		   if(verificaPlaca.validaPlaca(placa)) this.placa = placa;
+		   else this.placa = null;
+		}
+	public Carros(String modelo, String marca, double motor, int numAssentos, String tipo, double diariaSDesc, double diariaCDesc, double desconto, int diaRetirada, int mesRetirada, int anoRetirada, int diaDevolucao, int mesDevolucao, int anoDevolucao, int horaRetirada, int minRetirada, int segRetirada, String placa)
 	{
 		setModelo(modelo);
 		setMarca(marca);
@@ -275,6 +281,7 @@ public class Carros
 		setDiariaSDesc(diariaSDesc);
 		setDiariaCDesc();
 		setDesconto(desconto);
+		setPlaca(placa);
 	}
 	
 	public void alugaCarro(Carros carro, int diaDevolucao, int mesDevolucao, int anoDevolucao, int diaRetirada, int mesRetirada, int anoRetirada, int horaRetirada, int minRetirada, int segRetirada, int horaDevolucao, int minDevolucao, int segDevolucao)
