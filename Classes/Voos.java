@@ -8,15 +8,14 @@ public class Voos {
 	private LocalTime horaChegada;
 	private int vagas;
 	private double preco;
-	private String evento;
 	
-	public Voos(int diaVoo,int mesVoo,int anoVoo,int hSaida,int minSaida,int segSaida,int hChegada,int minChegada,int segChegada,int vagas,double preco,String evento) {
+	public Voos(int diaVoo,int mesVoo,int anoVoo,int hSaida,int minSaida,int segSaida,int hChegada,int minChegada,int segChegada,int vagas,double preco) {
 		
 		setDataVoo(diaVoo,mesVoo,anoVoo);
 		setHoraSaida(hSaida,minSaida,segSaida);
 		setHoraChegada(hChegada,minChegada,segChegada);
 		setVagas(vagas);
-		setEvento(evento);
+		setPreco(diaVoo,mesVoo,anoVoo,preco);
 		
 	}
 
@@ -144,16 +143,61 @@ public class Voos {
 		return preco;
 	}
 
-	public void setPreco(double preco) {
-		this.preco = preco;
-	}
-
-	public String getEvento() {
-		return evento;
-	}
-
-	public void setEvento(String evento) {
-		this.evento = evento;
+	public void setPreco(int diaVoo,int mesVoo,int anoVoo,double preco) {
+		
+		double valorAumentado;
+		
+		//Ano novo e Natal
+		if(((diaVoo > 15) && (diaVoo < 31)) && (mesVoo == 12) ) {
+			valorAumentado = 0.1 * preco;
+			this.preco = (preco+valorAumentado);
+		} else {
+			//Carnaval
+			if(((diaVoo > 10) && (diaVoo < 17)) && (mesVoo == 2) ) {
+				valorAumentado = 0.1 * preco;
+				this.preco = (preco+valorAumentado);
+			} else {
+				//Páscoa
+				if(((diaVoo > 25) && (diaVoo < 31)) && (mesVoo == 3) ) {
+					valorAumentado = 0.1 * preco;
+					this.preco = (preco+valorAumentado);
+				} else {
+					//Corpus Christi
+					if(((diaVoo > 24) && (diaVoo < 30)) && (mesVoo == 5) ) {
+						valorAumentado = 0.1 * preco;
+						this.preco = (preco+valorAumentado);
+					} else {
+						//Proclamação da República
+						if(((diaVoo > 9) && (diaVoo < 15)) && (mesVoo == 11) ) {
+							valorAumentado = 0.1 * preco;
+							this.preco = (preco+valorAumentado);
+						} else {
+							//Férias escolares
+							if(((diaVoo > 1) && (diaVoo < 31)) && (mesVoo == 7) ) {
+								valorAumentado = 0.1 * preco;
+								this.preco = (preco+valorAumentado);
+							} else {
+								//Dia das mães
+								if(((diaVoo > 1) && (diaVoo < 12)) && (mesVoo == 5) ) {
+									valorAumentado = 0.1 * preco;
+									this.preco = (preco+valorAumentado);
+								} else {
+									//Dia dos pais
+									if(((diaVoo > 1) && (diaVoo < 11)) && (mesVoo == 8) ) {
+										valorAumentado = 0.1 * preco;
+										this.preco = (preco+valorAumentado);
+									} else {
+										//Data padrão
+										this.preco = preco;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 	
+
 }
