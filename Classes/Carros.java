@@ -31,8 +31,17 @@ public class Carros
 	private int anoDevolucao;
     private LocalTime tempoDevolucao;
     private String placa;
+    private Pessoa clienteLocador;
 	
-    public void setTempoRetirada(int horaRetirada,int minChegada,int segChegada) {
+    public Pessoa getClienteLocador() {
+		return clienteLocador;
+	}
+
+	public void setClienteLocador(Pessoa clienteLocador) {
+		this.clienteLocador = clienteLocador;
+	}
+
+	public void setTempoRetirada(int horaRetirada,int minChegada,int segChegada) {
         if((horaRetirada<0) || (horaRetirada>23)) {
             horaRetirada = -1;
             minRetirada = -1;
@@ -284,8 +293,9 @@ public class Carros
 		setPlaca(placa);
 	}
 	
-	public void alugaCarro(Carros carro, int diaDevolucao, int mesDevolucao, int anoDevolucao, int diaRetirada, int mesRetirada, int anoRetirada, int horaRetirada, int minRetirada, int segRetirada, int horaDevolucao, int minDevolucao, int segDevolucao)
+	public void vendaCarro(Carros carro, int diaDevolucao, int mesDevolucao, int anoDevolucao, int diaRetirada, int mesRetirada, int anoRetirada, int horaRetirada, int minRetirada, int segRetirada, int horaDevolucao, int minDevolucao, int segDevolucao, Pessoa clienteLocador)
 	{
+		setClienteLocador(clienteLocador);
 		setDataDevolucao(diaDevolucao, mesDevolucao, anoDevolucao);
 		setDataRetirada(diaRetirada, mesRetirada, anoRetirada);
 		setTempoRetirada(horaRetirada, minRetirada, segRetirada);
