@@ -3,10 +3,8 @@ package tcd;
 class FuncionarioUdiLocaliza extends Funcionario 
 {
 	public FuncionarioUdiLocaliza(String nome, String endLogradouro, int endNumero, String endBairro, String endCidade,
-			String endUf, String endCep, String cpf, int diaNasc, int mesNasc, int anoNasc, String carteiraTrab,
-			int hoteisCad) {
-		super(nome, endLogradouro, endNumero, endBairro, endCidade, endUf, endCep, cpf, diaNasc, mesNasc, anoNasc, carteiraTrab,
-				hoteisCad);
+			String endUf, String endCep, String cpf, int diaNasc, int mesNasc, int anoNasc, String carteiraTrab) {
+		super(nome, endLogradouro, endNumero, endBairro, endCidade, endUf, endCep, cpf, diaNasc, mesNasc, anoNasc, carteiraTrab, 0);
 	}
 	
 	public void adicionarCarro(UdiLocaliza locadora, Carros carro) {
