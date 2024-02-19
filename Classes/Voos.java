@@ -62,9 +62,7 @@ public class Voos {
         		anoVoo = -1;
         }
         
-        if((diaVoo != -1) && (mesVoo!= -1) && (anoVoo != -1)) {
-        	this.dataVoo = LocalDate.of(anoVoo, mesVoo, diaVoo);
-        }
+        this.dataVoo = LocalDate.of(anoVoo, mesVoo, diaVoo);
         
         
 	}
@@ -92,9 +90,7 @@ public class Voos {
 			segSaida = -1;
 		}
 		
-		if((hSaida != -1) && (minSaida!= -1) && (segSaida != -1)) {
-        	this.horaSaida = LocalTime.of(hSaida, minSaida, segSaida);
-        }
+		this.horaSaida = LocalTime.of(hSaida, minSaida, segSaida);
 	}
 
 	public LocalTime getHoraChegada() {
@@ -120,9 +116,7 @@ public class Voos {
 			segChegada = -1;
 		}
 		
-		if((hChegada != -1) && (minChegada!= -1) && (segChegada != -1)) {
-        	this.horaChegada = LocalTime.of(hChegada, minChegada, segChegada);
-        }
+		this.horaChegada = LocalTime.of(hChegada, minChegada, segChegada);
 	}
 
 	public int getVagas() {
