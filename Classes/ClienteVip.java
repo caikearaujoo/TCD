@@ -1,4 +1,3 @@
-package udidecola;
 
 import java.time.LocalDate;
 
@@ -66,8 +65,6 @@ public class ClienteVip extends Cliente{
         	}
         }
         
-        if ((dia != -1) && (mes != -1) && (ano != -1)) {
-        	this.dataVip = LocalDate.of(ano, mes, dia);
-        }
+        this.dataVip = LocalDate.of(ano, mes, dia);
 	}
 }
