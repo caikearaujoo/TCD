@@ -1,5 +1,3 @@
-package udidecola;
-
 import meuPacote.VerificaCPF;
 import java.time.LocalDate;
 
@@ -148,8 +146,6 @@ public class Pessoa {
         	}
         }
         
-        if ((dia != -1) && (mes != -1) && (ano != -1)) {
-        	this.dataNasc = LocalDate.of(ano, mes, dia);
-        }        
+        this.dataNasc = LocalDate.of(ano, mes, dia);        
     }
 }
