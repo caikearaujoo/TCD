@@ -166,9 +166,7 @@ public class Empresa {
         		anoCria = -1;
         }
         
-        if((diaCria != -1) && (mesCria!= -1) && (anoCria != -1)) {
-        	this.dataCria = LocalDate.of(anoCria, mesCria, diaCria);
-        }
+        this.dataCria = LocalDate.of(anoCria, mesCria, diaCria);
         
         
         
