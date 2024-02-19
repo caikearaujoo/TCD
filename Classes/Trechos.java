@@ -113,9 +113,7 @@ public class Trechos {
 			segSaida = -1;
 		}
 		
-		if((hSaida != -1) && (minSaida!= -1) && (segSaida != -1)) {
-        	this.horaSaida = LocalTime.of(hSaida, minSaida, segSaida);
-        }
+		this.horaSaida = LocalTime.of(hSaida, minSaida, segSaida);
 		
 		
 	}
@@ -143,9 +141,7 @@ public class Trechos {
 			segChegada = -1;
 		}
 		
-		if((hChegada != -1) && (minChegada!= -1) && (segChegada != -1)) {
-        	this.horaChegada = LocalTime.of(hChegada, minChegada, segChegada);
-        }
+		this.horaChegada = LocalTime.of(hChegada, minChegada, segChegada);
 	}
 
 	public CompanhiaAerea getNomeCompA() {
