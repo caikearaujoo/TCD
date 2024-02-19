@@ -44,9 +44,7 @@ class Hotel extends Empresa
 			segCheckin = -1;
 		}
 		
-		if((hCheckin != -1) && (minCheckin!= -1) && (segCheckin != -1)) {
-        	this.horaCheckin = LocalTime.of(hCheckin, minCheckin, segCheckin);
-        }
+		this.horaCheckin = LocalTime.of(hCheckin, minCheckin, segCheckin);
 	}
 
 
@@ -76,9 +74,7 @@ class Hotel extends Empresa
 			segCheckout = -1;
 		}
 		
-		if((hCheckout != -1) && (minCheckout!= -1) && (segCheckout != -1)) {
-        	this.horaCheckin = LocalTime.of(hCheckout, minCheckout, segCheckout);
-        }
+		this.horaCheckout = LocalTime.of(hCheckout, minCheckout, segCheckout);
 	}
 
 
