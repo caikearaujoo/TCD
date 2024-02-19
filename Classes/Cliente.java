@@ -1,5 +1,3 @@
-package udidecola;
-
 import java.time.LocalDate;
 
 public class Cliente extends Pessoa {
@@ -74,9 +72,7 @@ public class Cliente extends Pessoa {
         	}
         }
         
-        if ((dia != -1) && (mes != -1) && (ano != -1)) {
-        	this.dataCad = LocalDate.of(ano, mes, dia);
-        }        
+        this.dataCad = LocalDate.of(ano, mes, dia);        
     }
 
 	public String getEmail() {
