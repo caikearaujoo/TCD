@@ -1,17 +1,34 @@
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Cliente extends Pessoa {
 	private LocalDate dataCad;
 	private String email;
 	private int numCompras;
+	private List<Compras> compras;
+	
 	
 	public Cliente(String nome, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep, String cpf, int diaNasc, int mesNasc, int anoNasc, int diaCad, int mesCad, int anoCad, String email, int numCompras) {
 		super(nome, endLogradouro, endNumero, endBairro, endCidade, endUf, endCep, cpf, diaNasc, mesNasc, anoNasc);
 		setDataCad(diaCad, mesCad, anoCad);
 		setEmail(email);
 		setNumCompras(numCompras);
+		this.compras = new ArrayList<>();
 	}
 	
+	public List<Compras> getCompras() {
+        return compras;
+    }
+
+    public void adicionarCompra(Compras compra) { //Adiciona em um vetor que guarda as compras realizadas pelo cliente
+        compras.add(compra);
+    }
+
+    public void removerCompra(Compras compra) {
+        compras.remove(compra);
+    }
+    
 	public Cliente(String nome, String cpf) {
 		setNome(nome);
 		setCpf(cpf);
