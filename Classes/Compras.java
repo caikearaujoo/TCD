@@ -19,8 +19,8 @@ public class Compras {
     public void calcularPrecoTotal() {
         precoTotal = 0.0; //seta como 0 antes de fazer a soma dos preços
         
-        for (Object item : itens) //vai iterando sobre cada item da lista de objetos de itens de compra
-        {
+        for (int i = 0; i < itens.size(); i++) {
+            Object item = itens.get(i);
             if (item instanceof Quarto) //se o item for da classe Quarto, faz X
             {
                 precoTotal += ((Quarto) item).getDiariaCdesc();
