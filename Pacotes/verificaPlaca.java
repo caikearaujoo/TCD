@@ -13,5 +13,5 @@ public class verificaPlaca {
 		      valido = false;
 		   }
 		   return valido;
-		}
+		} //Código retirado da alura: https://www.alura.com.br/artigos/verificar-se-e-letra-ou-numero-no-java
 }
