@@ -11,6 +11,22 @@ public class PesquisasTrechosVoos {
 	private CompanhiaAerea nomeCompA;
 	private double valorMax;
 	
+	private LocalTime horaPesquisa;
+    private LocalDate dataPesquisa;
+	
+	public PesquisasTrechosVoos(int diaVoo,int mesVoo,int anoVoo,String origem,String destino,int hSaida,int minSaida,int hChegada,int minChegada,CompanhiaAerea nomeCompA,double valorMax) {
+		
+		setDataVoo(diaVoo,mesVoo,anoVoo);
+		setOrigem(origem);
+		setDestino(destino);
+		setHoraSaida(hSaida,minSaida,0);
+		setHoraChegada(hChegada,minChegada,0);
+		setNomeCompA(nomeCompA);
+		setValorMax(valorMax);
+		setHoraPesquisa();
+		setDataPesquisa();
+	}
+	
 	public LocalDate getDataVoo() {
 		return dataVoo;
 	}
@@ -147,6 +163,21 @@ public class PesquisasTrechosVoos {
 		} else {
 			this.valorMax = valorMax;
 		}
+	}
+	
+	public LocalTime getHoraPesquisa() {
+		return horaPesquisa;
+	}
+	
+	public void setHoraPesquisa() {
+		this.horaPesquisa = LocalTime.now();
+	}
+	
+	public LocalDate getDataPesquisa() {
+		return dataPesquisa;
+	}
+	public void setDataPesquisa() { 
+		this.dataPesquisa = LocalDate.now();
 	}
 
 }
