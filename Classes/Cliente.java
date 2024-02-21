@@ -7,7 +7,9 @@ public class Cliente extends Pessoa {
 	private String email;
 	private int numCompras;
 	private List<Compras> compras;
-	
+	private List<PesquisasHotel> pesquisasH;
+	private List<PesquisasCarros> pesquisasC;
+	private List<PesquisasTrechosVoos> pesquisasTV;
 	
 	public Cliente(String nome, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep, String cpf, int diaNasc, int mesNasc, int anoNasc, int diaCad, int mesCad, int anoCad, String email, int numCompras) {
 		super(nome, endLogradouro, endNumero, endBairro, endCidade, endUf, endCep, cpf, diaNasc, mesNasc, anoNasc);
@@ -15,13 +17,52 @@ public class Cliente extends Pessoa {
 		setEmail(email);
 		setNumCompras(numCompras);
 		this.compras = new ArrayList<>();
+		this.pesquisasH = new ArrayList<>();
+		this.pesquisasC = new ArrayList<>();
+		this.pesquisasTV = new ArrayList<>();		
 	}
 	
-	public List<Compras> getCompras() {
+	public List<PesquisasHotel> getPesquisasHotel() {
+        return pesquisasH;
+    }
+
+    public void adicionarPesquisasHotel(PesquisasHotel pesquisa) {
+        pesquisasH.add(pesquisa);
+    }
+
+    public void removerPesquisasHotel(PesquisasHotel pesquisa) {
+        pesquisasH.remove(pesquisa);
+    }
+	
+	public List<PesquisasCarros> getPesquisasCarros() {
+        return pesquisasC;
+    }
+
+    public void adicionarPesquisasCarros(PesquisasCarros pesquisa) { 
+        pesquisasC.add(pesquisa);
+    }
+
+    public void removerPesquisasCarros(PesquisasCarros pesquisa) {
+        pesquisasC.remove(pesquisa);
+    }
+	
+	public List<PesquisasTrechosVoos> getPesquisasTrechosVoos() {
+        return pesquisasTV;
+    }
+
+    public void adicionarPesquisasTrechosVoos(PesquisasTrechosVoos pesquisa) { 
+        pesquisasTV.add(pesquisa);
+    }
+
+    public void removerPesquisasTrechosVoos(PesquisasTrechosVoos pesquisa) {
+        pesquisasTV.remove(pesquisa);
+    }
+    
+    public List<Compras> getCompras() {
         return compras;
     }
 
-    public void adicionarCompra(Compras compra) { //Adiciona em um vetor que guarda as compras realizadas pelo cliente
+    public void adicionarCompra(Compras compra) { 
         compras.add(compra);
     }
 
