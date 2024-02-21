@@ -1,7 +1,6 @@
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-
 public class PesquisasHotel {
 	
 	private int numEstrelas;
@@ -13,8 +12,9 @@ public class PesquisasHotel {
 	private String tipoQuarto;
 	private LocalTime horaPesquisa;
 	private LocalDate dataPesquisa;
-	
-	public PesquisasHotel(int numEstrelas,int accPet,int numQuartos,String cidade,int hCheckin,int minCheckin,int hCheckout,int minCheckout) {
+	private double valorMax;
+
+	public PesquisasHotel(int numEstrelas,int accPet,int numQuartos,String cidade,int hCheckin,int minCheckin,int hCheckout,int minCheckout,double valorMax) {
 		
 		setNumEstrelas(numEstrelas);
 		setAccPet(accPet);
@@ -24,6 +24,7 @@ public class PesquisasHotel {
 		setHoraCheckout(hCheckout,minCheckout,0);
 		setHoraPesquisa();
 		setDataPesquisa();
+		setValorMax(valorMax);
 	}
 	
 
@@ -121,8 +122,6 @@ public class PesquisasHotel {
 		else this.accPet = -1;
 	}
 
-
-
 	public int getNumQuartos() {
 		return numQuartos;
 	}
@@ -150,10 +149,20 @@ public class PesquisasHotel {
 		return tipoQuarto;
 	}
 
-
-
-
 	public void setTipoQuarto(String tipoQuarto) {
 		this.tipoQuarto = tipoQuarto;
 	}
+	
+	public double getValorMax() {
+		return valorMax;
+	}
+
+	public void setValorMax(double valorMax) {
+		if(valorMax < 0) {
+			valorMax = -1;
+		} else {
+			this.valorMax = valorMax;
+		}
+	}
+
 }	
