@@ -28,7 +28,8 @@ public class Cliente extends Pessoa {
 	public Cliente() {
 		
 	}
-	
+
+	// getters e setters
 	public LocalDate getDataCad() {
 		return dataCad;
 	}
