@@ -27,7 +27,8 @@ public class FuncHotel extends Pessoa {
 	}
 
 	public static void setSalarioFixo(double salarioFixo) {
-		FuncHotel.salarioFixo = salarioFixo;
+		if (salarioFixo > 0) FuncHotel.salarioFixo = salarioFixo;
+		else FuncHotel.salarioFixo = -1;
 	}
 
 	public double getSalarioFixo() {
@@ -41,5 +42,10 @@ public class FuncHotel extends Pessoa {
 	public void setHoteisCad(int hoteisCad) {
 		if (hoteisCad >= 0) this.hoteisCad = hoteisCad;
 		else this.hoteisCad = -1;
+	}
+	
+	// método: definir salário dos funcionários
+	public void definirSalario(double salario) {
+		setSalarioFixo(salario);
 	}
 }
