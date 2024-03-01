@@ -1,54 +1,40 @@
 package udidecola;
 
-public class FuncEspecial extends FuncHotel {
+public class FuncHotel extends Pessoa {
 	// atributos específicos
-	private static double bonusSal;
+	private String carteiraTrab;
+	private static double salarioFixo;
 	
-	public FuncEspecial(String nome, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep, 
-			            String cpf, int diaNasc, int mesNasc, int anoNasc, 
-			            String carteiraTrab, int hoteisCad) {
+	// construtor completo
+	public FuncHotel(String nome, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep, 
+		             String cpf, int diaNasc, int mesNasc, int anoNasc,
+		             String carteiraTrab) {
 		
 		super(nome, endLogradouro, endNumero, endBairro, endCidade, endUf, endCep, 
-			  cpf, diaNasc, mesNasc, anoNasc, 
-			  carteiraTrab, hoteisCad);
-	}
-
-	public static double getBonusSal() {
-		return bonusSal;
-	}
-
-	public static void setBonusSal(double bonusSal) {
-		if (bonusSal > 0) FuncEspecial.bonusSal = bonusSal;
-		else FuncEspecial.bonusSal = -1;
-	}
-
-	// método: definir bônus salarial dos funcionários especiais
-	public void definirBonus(double bonus) {
-		setBonusSal(bonus);
-	}
-
-	// método: salário do funcionário especial
-	public double calculaSalario(int numHotelRegistrado) {
-		double salarioTotal = getSalarioFixo() + (getSalarioFixo() * bonusSal * super.getHoteisCad());
-		return salarioTotal;
-	}
-	
-	// método: registro de hoteis
-	public Hotel registraHotel(String CNPJ, String nomeOfi, String nomeDiv, 
-			                   int diaCria, int mesCria, int anoCria, 
-			                   String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep, 
-			                   int numEstrelas, boolean petAceito, int numQuartos, String msgDivulg, String descricao,
-			                   int hCheckin,int minCheckin,int segCheckin,
-			      		       int hCheckout,int minCheckout,int segCheckout) {
+			  cpf, diaNasc, mesNasc, anoNasc);
 		
-		Hotel h = new Hotel(CNPJ, nomeOfi, nomeDiv, 
-				            diaCria, mesCria, anoCria, 
-				            endLogradouro, endNumero, endBairro, endCidade, endUf, endCep, 
-				            numEstrelas, petAceito, numQuartos, msgDivulg, descricao,
-				            hCheckin, minCheckin, segCheckin,
-			    		    hCheckout, minCheckout, segCheckout);
+		setCarteiraTrab(carteiraTrab);
+	}
 		
-		super.setHoteisCad((super.getHoteisCad()) + 1);
-		return h;
-	}	
+	public String getCarteiraTrab() {
+		return carteiraTrab;
+	}
+
+	public void setCarteiraTrab(String carteiraTrab) {
+		this.carteiraTrab = carteiraTrab;
+	}
+
+	public static void setSalarioFixo(double salarioFixo) {
+		if (salarioFixo > 0) FuncHotel.salarioFixo = salarioFixo;
+		else FuncHotel.salarioFixo = -1;
+	}
+
+	public double getSalarioFixo() {
+		return salarioFixo;
+	}
+
+	// método: definir salário dos funcionários
+	public void definirSalario(double salario) {
+		setSalarioFixo(salario);
+	}
 }
