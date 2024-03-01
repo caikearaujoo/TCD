@@ -1,4 +1,4 @@
-package udidecola;
+package tcd;
 import java.time.LocalDate;
 
 public class ClienteVip extends Cliente {
@@ -19,7 +19,13 @@ public class ClienteVip extends Cliente {
 		
 		setDataVip(diaVip, mesVip, anoVip);
 	}
-
+	
+	public ClienteVip(Cliente cliente, int diaVip, int mesVip, int anoVip, int diaCad, int mesCad, int anoCad) {
+	    super(cliente.getNome(), cliente.getEndLogradouro(), cliente.getEndNumero(), cliente.getEndBairro(), cliente.getEndCidade(), cliente.getEndUf(), cliente.getEndCep(), 
+	          cliente.getCpf(), diaVip, mesVip, anoVip, diaCad, mesCad, anoCad, cliente.getEmail(), cliente.getNumCompras());
+	    setDataVip(diaVip, mesVip, anoVip);
+	}
+	
 	// getters e setters
 	public double getDescontoVip() {
 		return descontoVip;
