@@ -7,7 +7,7 @@ public class Cliente extends Pessoa {
 	private String email;
 	private int numCompras;
 	
-	// construtor completo
+	// construtor (item 3D)
 	public Cliente(String nome, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep, 
 			       String cpf, int diaNasc, int mesNasc, int anoNasc, int diaCad, 
 			       int mesCad, int anoCad, String email, int numCompras) {
