@@ -1,80 +1,154 @@
 package tcd;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalTime;
+import java.time.LocalDate; 
 
 public class Compras {
-    private String objeto;
+    private Cliente cliente;
     private double precoTotal;
-    private List<Object> itens;
-    private List<Integer> qtdItens;
-
-    public Compras(String tipo) {
-        this.objeto = tipo;
-        this.precoTotal = 0.0;
-        this.itens = new ArrayList<>();
-        this.qtdItens = new ArrayList<>();
+    private ArrayList<Voos> listaVoos;
+    private ArrayList<Quarto> listaQuartos;
+    private LocalDate dataCompra;
+	private LocalTime horaCompra;
+    
+    
+    public Compras(Cliente cliente)
+    {
+    	setCliente(cliente);
     }
     
-    public void calcularPrecoTotal() {
-        precoTotal = 0.0; //seta como 0 antes de fazer a soma dos preços
+    public Compras (Cliente cliente, Voos voo, int diaCompra, int mesCompra, int anoCompra, int hCompra, int minCompra, int segCompra) {
+    	setCliente(cliente);
+    	adicionarVoo(voo);
+    	setDataCompra(diaCompra, mesCompra, anoCompra);
+    	setHoraCompra(hCompra, minCompra, segCompra);
+    }
+    
+    public Compras (Cliente cliente, Quarto quarto, int diaCompra, int mesCompra, int anoCompra, int hCompra, int minCompra, int segCompra) {
+    	setCliente(cliente);
+    	adicionarQuarto(quarto);
+    	setDataCompra(diaCompra, mesCompra, anoCompra);
+    	setHoraCompra(hCompra, minCompra, segCompra);
+    }
+    
+    public LocalDate getDataCompra() {
+		return dataCompra;
+	}
+
+	public void setDataCompra(int diaCompra, int mesCompra, int anoCompra) {
+		if(anoCompra<=2024) {
+			diaCompra = -1;
+			mesCompra = -1;
+			anoCompra = -1;
+		}
         
-        for (int i = 0; i < itens.size(); i++) {
-            Object item = itens.get(i);
-            if (item instanceof Quarto) //se o item for da classe Quarto, faz X
-            {
-                precoTotal += ((Quarto) item).getDiariaCdesc();
+        if(mesCompra<0 && mesCompra>13) {
+        	diaCompra = -1;
+			mesCompra = -1;
+			anoCompra = -1;
+        }
+        
+        if (diaCompra < 0) {
+            diaCompra = -1;
+            mesCompra = -1;
+            anoCompra = -1;
+        }
+        
+        if(mesCompra == 2 && (anoCompra % 4 == 0) && ((anoCompra % 100 != 0) || (anoCompra % 400 == 0)))
+        {
+            if(diaCompra<0 && diaCompra>29) {
+            	diaCompra = -1;
+    			mesCompra = -1;
+    			anoCompra = -1;
             }
-            else if (item instanceof Carros) 
-            {
-                precoTotal += ((Carros) item).getDiariaCdesc(); //se o item for da classe Carros, faz X
-            } 
-            else if (item instanceof Voos) 
-            {
-                precoTotal += ((Voos) item).getPreco(); //se o item for da classe Voos, faz X
-            }
         }
+        else if(mesCompra == 2 && diaCompra<0 && diaCompra>28) {
+        		diaCompra = -1;
+        		mesCompra = -1;
+        		anoCompra = -1;
+        }
+        else if(diaCompra<0 && diaCompra>31) {
+        		diaCompra = -1;
+        		mesCompra = -1;
+        		anoCompra = -1;
+        }
+        
+        this.dataCompra = LocalDate.of(anoCompra, mesCompra, diaCompra);
+	}
+
+	public LocalTime getHoraCompra() {
+		return horaCompra;
+	}
+
+	public void setHoraCompra(int hCompra, int minCompra, int segCompra) {
+		if((hCompra<0) || (hCompra>23)) {
+			hCompra = -1;
+			minCompra = -1;
+			segCompra = -1;
+		}
+		
+		if((minCompra<0) || (minCompra>59)) {
+			hCompra = -1;
+			minCompra = -1;
+			segCompra = -1;
+		}
+		
+		if((segCompra<0) || (segCompra>59)) {
+			hCompra = -1;
+			minCompra = -1;
+			segCompra = -1;
+		}
+		
+		this.horaCompra = LocalTime.of(hCompra, minCompra, segCompra);
+	}
+
+	public void adicionarQuarto(Quarto quarto) {
+        this.listaQuartos.add(quarto); //adicionar na lista de quartos
     }
     
-    public void adicionarItem(Object item) {
-        itens.add(item); //adiciona no array
-        
-        int indice = itens.indexOf(item); //essa indexOf pega o indice do item que foi adicionado no array, p relacionar com o array de quantidade de itens
-        
-        if (indice < qtdItens.size()) {
-            qtdItens.set(indice, qtdItens.get(indice) + 1);//+1 no indice de qnd toda vez que o array de itens for incrementado
-        } else {
-            qtdItens.add(1);
-        }
-    }
+    public ArrayList<Quarto> getListaQuartos() {
+		return listaQuartos;
+	}
 
-    public void removerItem(Object item) {
-        int indice = itens.indexOf(item);
-        
-        if (indice>= 0) { //se o indice do item que deseja ser retirado for válido, remover o objeto do array de itens e o inteiro do valor de qtd itens
-            itens.remove(indice);
-            qtdItens.remove(indice);
-        }
-    }
+	public void setListaQuartos(ArrayList<Quarto> listaQuartos) {
+		this.listaQuartos = listaQuartos;
+	}
 
-    public String getObjeto() {
-        return objeto;
-    }
-
-    public void setObjeto(String tipo) {
-        this.objeto = tipo;
-    }
-
-    public double getPrecoTotal() {
-        return precoTotal;
-    }
-
-    public void setPrecoTotal(double precoTotal) {
-        this.precoTotal = precoTotal;
-    }
-
-    public List<Object> getItens() {
-        return itens;
+	public void adicionarVoo(Voos voo) {
+        this.listaVoos.add(voo); //adicionar na lista de voos
     }
     
+    public ArrayList<Voos> getListaVoos() {
+        return this.listaVoos;
+    }
+    
+    public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public void setListaVoos(ArrayList<Voos> listaVoos) {
+        this.listaVoos = listaVoos;
+    }
+    
+    public double calculaPreco()
+    {
+    	precoTotal = 0.0;
+    	
+    	for(int i = 0; i < listaVoos.size(); i++) {
+    		Voos voo = listaVoos.get(i);
+    		precoTotal += voo.getPreco();
+    	}
+    	
+    	for (int i = 0; i < listaQuartos.size(); i++) {
+            Quarto quarto = listaQuartos.get(i);
+            precoTotal += quarto.getDiariaCdesc();
+        }
+    	
+    	return precoTotal;
+    }
 }
