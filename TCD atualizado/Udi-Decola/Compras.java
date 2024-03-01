@@ -32,6 +32,24 @@ public class Compras {
     	setHoraCompra(hCompra, minCompra, segCompra);
     }
     
+    public double calcularTaxaQuarto() { //percorre a lista de quartos, somando o valor de cada elemento * taxa
+        double taxaQuarto = 0.0;
+        for (int i = 0; i < listaQuartos.size(); i++) {
+            Quarto quarto = listaQuartos.get(i);
+            taxaQuarto += quarto.getDiariaCdesc() * Hotel.getTaxa();
+        }
+        return taxaQuarto;
+    }
+    
+    public double calcularTaxaVoo() { //percorre a lista de voos, somando o valor de cada elemento * taxa
+        double taxaVoo = 0.0;
+        for (int i = 0; i < listaVoos.size(); i++) {
+            Voos voo = listaVoos.get(i);
+            taxaVoo += voo.getPreco() * CompanhiaAerea.getTaxaUdi();
+        }
+        return taxaVoo;
+    }
+    
     public LocalDate getDataCompra() {
 		return dataCompra;
 	}
