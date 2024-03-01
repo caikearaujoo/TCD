@@ -3,6 +3,7 @@ import java.time.LocalTime;
 
 public class Pesquisas {
 	
+	Cliente cliente; //Pesquisa tem qual cliente fez.
 	private String origem;
 	private String destino;
 	private LocalDate dataInicio;
@@ -10,15 +11,24 @@ public class Pesquisas {
 	private LocalTime horaPesquisa;
 	private LocalDate dataPesquisa;
 	
-	public Pesquisas(String origem,String destino,int diaInicio,int mesInicio,int anoInicio,int diaFim,int mesFim,int anoFim) {
+	public Pesquisas(Cliente cliente,String origem,String destino,int diaInicio,int mesInicio,int anoInicio,int diaFim,int mesFim,int anoFim) {
 		setOrigem(origem);
 		setDestino(destino);
 		setDataInicio(diaInicio,mesInicio,anoInicio);
 		setDataFim(diaFim,mesFim,anoFim);
 		setHoraPesquisa();
 		setDataPesquisa();
+		setCliente(cliente);
 	}
 	
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
 	public LocalTime getHoraPesquisa() {
 		return horaPesquisa;
 	}
@@ -143,5 +153,9 @@ public class Pesquisas {
         this.dataInicio = LocalDate.of(anoFim, mesFim, diaFim);
         
 	}
-  
+	
+	
+	
+	
+	
 }
