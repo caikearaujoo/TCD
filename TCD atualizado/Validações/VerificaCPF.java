@@ -1,4 +1,4 @@
-package validacoes;
+package validacoes; // pacote criado para guardar as validações utilizadas
 import java.util.InputMismatchException;
 
 // créditos:
