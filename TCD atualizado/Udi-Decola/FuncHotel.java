@@ -5,7 +5,7 @@ public class FuncHotel extends Pessoa {
 	private String carteiraTrab;
 	private static double salarioFixo;
 	
-	// construtor completo
+	// construtor (item 3D)
 	public FuncHotel(String nome, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep, 
 		             String cpf, int diaNasc, int mesNasc, int anoNasc,
 		             String carteiraTrab) {
@@ -15,7 +15,8 @@ public class FuncHotel extends Pessoa {
 		
 		setCarteiraTrab(carteiraTrab);
 	}
-		
+
+	// getters e setters
 	public String getCarteiraTrab() {
 		return carteiraTrab;
 	}
