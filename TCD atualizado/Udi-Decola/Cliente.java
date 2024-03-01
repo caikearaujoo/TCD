@@ -18,13 +18,13 @@ public class Cliente extends Pessoa {
 		setNumCompras(numCompras);
 	}
 	
-	// construtor com nome e cpf do cliente
+	// construtor com nome e cpf do cliente (item 3A)
 	public Cliente(String nome, String cpf) {
 		setNome(nome);
 		setCpf(cpf);
 	}
 	
-	// construtor padrão
+	// construtor default (item 3B)
 	public Cliente() {
 		
 	}
