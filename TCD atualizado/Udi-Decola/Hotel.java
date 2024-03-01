@@ -14,7 +14,6 @@ class Hotel extends Empresa
 	private LocalTime horaCheckout;
 	private String msgDivulg;
 	private String desc;
-	private String cidade;
 	private final static double taxa = 0.05;
 	private Quarto qluxo;
 	private Quarto qstandartS;
@@ -217,14 +216,8 @@ class Hotel extends Empresa
 		else this.desc = null;
 	}
 
-
-
-	public String getCidade() {
-		return cidade;
-	}
-	
 	public Hotel(String CNPJ, String nome, String nomeDivulg, String endLogradouro, int diaCria, int mesCria,
-			int anoCria, int endNumero, String endBairro, String endCidade, String endUf, String endCep,int numEstrelas,boolean accPet,int numQuartos,String msgDivulg,String desc,String cidade,int hCheckin,int minCheckin,int segCheckin,int hCheckout,int minCheckout,int segCheckout) {
+			int anoCria, int endNumero, String endBairro, String endCidade, String endUf, String endCep,int numEstrelas,boolean accPet,int numQuartos,String msgDivulg,String desc,int hCheckin,int minCheckin,int segCheckin,int hCheckout,int minCheckout,int segCheckout) {
 		
 		super(CNPJ, nome, nomeDivulg, endLogradouro, diaCria, mesCria, anoCria, endNumero, endBairro, endCidade, endUf, endCep);
 		
@@ -233,19 +226,9 @@ class Hotel extends Empresa
 		setNumQuartos(numQuartos);
 		setMsgDivulg(msgDivulg);
 		setDesc(desc);
-		setCidade(cidade);
 		setHoraCheckin(hCheckin,minCheckin,segCheckin);
 		setHoraCheckout(hCheckout,minCheckout,segCheckout);
 	}
-	
-	public void setCidade(String cidade) {
-		if (cidade != null && !cidade.isEmpty()) 
-		{
-			this.cidade = cidade;
-		}
-		else this.cidade = null;
-	}
-
 
 	
 	
