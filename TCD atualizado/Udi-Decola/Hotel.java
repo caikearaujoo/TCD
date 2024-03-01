@@ -151,8 +151,8 @@ class Hotel extends Empresa
 	}
 	
 	
-	public double getTaxa() {
-		return taxa;
+	public static double getTaxa() {
+	    return taxa;
 	}
 
 
