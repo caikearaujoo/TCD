@@ -22,7 +22,7 @@ public class Cliente extends Pessoa {
 	
 	public void transformaEmVip()
 	{
-		if(numCompras >=20) {
+		if(numCompras ==20) {
 			ClienteVip clienteVip = new ClienteVip(this, getDataNasc().getDayOfMonth(), getDataNasc().getMonthValue(), getDataNasc().getYear(), getDataCad().getDayOfMonth(), getDataCad().getMonthValue(), getDataCad().getYear());
 			ArrayList<Compras> comprasCliente = getCompras();
 			
