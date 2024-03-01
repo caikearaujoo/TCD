@@ -7,15 +7,25 @@ public class Cliente extends Pessoa {
 	private String email;
 	private int numCompras;
 	private ArrayList<Pesquisas> pesquisas;
-
+	private ArrayList<Compras> compras;
+	
 	public Cliente(String nome, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep, String cpf, int diaNasc, int mesNasc, int anoNasc, int diaCad, int mesCad, int anoCad, String email, int numCompras) {
 		super(nome, endLogradouro, endNumero, endBairro, endCidade, endUf, endCep, cpf, diaNasc, mesNasc, anoNasc);
 		setDataCad(diaCad, mesCad, anoCad);
 		setEmail(email);
 		setNumCompras(numCompras);
 		this.pesquisas = new ArrayList<>();
+		this.compras = new ArrayList<>();
 	}
 	
+	public void adicionarCompra(Compras compra) {
+        this.compras.add(compra);
+    }
+
+    public ArrayList<Compras> getCompras() {
+        return compras;
+    }
+    
 	public Cliente(String nome, String cpf) {
 		setNome(nome);
 		setCpf(cpf);
