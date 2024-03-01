@@ -9,9 +9,10 @@ class CompanhiaAerea extends Empresa{
 				endUf, endCep);
 	}
 	
-	public double getTaxaUdi() {
+	public static double getTaxaUdi() {
 		return taxaUdi;
 	}
+	
 	
 	
 }
