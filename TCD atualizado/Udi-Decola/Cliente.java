@@ -1,3 +1,5 @@
+package tcd;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -18,6 +20,18 @@ public class Cliente extends Pessoa {
 		this.compras = new ArrayList<>();
 	}
 	
+	public void transformaEmVip()
+	{
+		if(numCompras >=20) {
+			ClienteVip clienteVip = new ClienteVip(this, getDataNasc().getDayOfMonth(), getDataNasc().getMonthValue(), getDataNasc().getYear(), getDataCad().getDayOfMonth(), getDataCad().getMonthValue(), getDataCad().getYear());
+			ArrayList<Compras> comprasCliente = getCompras();
+			
+			for(int i = 0; i < comprasCliente.size(); i++) { //percorre o array de compras do cliente
+				Compras compra = comprasCliente.get(i); //pega o valor do elemento
+				clienteVip.adicionarCompra(compra); //adiciona na lista de compras do clienteVip
+			}
+		}
+	}
 	public void adicionarCompra(Compras compra) {
         this.compras.add(compra);
     }
