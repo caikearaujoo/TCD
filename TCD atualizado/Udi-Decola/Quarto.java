@@ -1,12 +1,14 @@
-package tcd;
+package udidecola;
 
-public class Quarto 
-{
+// classe quarto é uma "classe auxiliar" para hotel
+public class Quarto {
+	// atributos
 	private double diariaSdesc;
 	private double desconto;
 	private double diariaCdesc;
 	private int quantidade;
-	
+
+	// getters and setters 
 	public double getDiariaSdesc() {
 		return diariaSdesc;
 	}
@@ -38,13 +40,12 @@ public class Quarto
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
-	
-	public Quarto(double diariaSdesc, double desconto, int quantidade)
-	{
+
+	// construtor
+	public Quarto(double diariaSdesc, double desconto, int quantidade) {
 		this.diariaSdesc = diariaSdesc;
 		this.diariaCdesc = (diariaSdesc - desconto);
 		this.desconto = desconto;
 		this.quantidade = quantidade;
 	}
-	
 }
