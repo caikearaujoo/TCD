@@ -234,7 +234,7 @@ class Hotel extends Empresa
 	
 	public void registrarQuarto(double diariaSdesc, double desconto, double diariaCdesc, int quantidade, int opcao) 
 	{
-        Quarto quarto = new Quarto(diariaSdesc, desconto, diariaCdesc, quantidade);
+        Quarto quarto = new Quarto(diariaSdesc, desconto,quantidade);
         
         switch (opcao) 
         {
