@@ -1,12 +1,12 @@
 package udidecola;
 import java.time.LocalDate;
 
-public class ClienteVip extends Cliente{
+public class ClienteVip extends Cliente {
 	// atributos específicos
 	private static double descontoVip = 0.20;
 	private LocalDate dataVip;
 	
-	// construtor completo
+	// construtor (item 3D)
 	public ClienteVip(String nome, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep, 
 			          String cpf, int diaNasc, int mesNasc, int anoNasc, 
 			          int diaCad, int mesCad, int anoCad, 
