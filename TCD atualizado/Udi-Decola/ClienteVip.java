@@ -2,7 +2,6 @@ package tcd;
 import java.time.LocalDate;
 
 public class ClienteVip extends Cliente {
-	// atributos específicos
 	private static double descontoVip = 0.20;
 	private LocalDate dataVip;
 	
