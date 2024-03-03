@@ -1,7 +1,6 @@
 package udidecola;
 
 public class FuncHotel extends Pessoa {
-	// atributos específicos
 	private String carteiraTrab;
 	private static double salarioFixo;
 	
