@@ -216,6 +216,7 @@ class Hotel extends Empresa
 		else this.desc = null;
 	}
 
+	//Construtor
 	public Hotel(String CNPJ, String nome, String nomeDivulg, String endLogradouro, int diaCria, int mesCria,
 			int anoCria, int endNumero, String endBairro, String endCidade, String endUf, String endCep,int numEstrelas,boolean accPet,int numQuartos,String msgDivulg,String desc,int hCheckin,int minCheckin,int segCheckin,int hCheckout,int minCheckout,int segCheckout) {
 		
@@ -232,9 +233,9 @@ class Hotel extends Empresa
 
 	
 	
-	public void registrarQuarto(double diariaSdesc, double desconto, double diariaCdesc, int quantidade, int opcao) 
+	public void registrarQuarto(double diariaSdesc, double desconto, double diariaCdesc, int quantidade, int opcao)
 	{
-        Quarto quarto = new Quarto(diariaSdesc, desconto,quantidade);
+        Quarto quarto = new Quarto(diariaSdesc, desconto,quantidade); //Função feita para o registro de quartos pelo hotel.
         
         switch (opcao) 
         {
