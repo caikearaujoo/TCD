@@ -3,7 +3,7 @@ import java.time.LocalTime;
 
 public class Pesquisas {
 	
-	Cliente cliente; //Pesquisa tem qual cliente fez.
+	Cliente cliente; // Cada pesquisa terá exatamente qual cliente a fez, para facilitar no registro.
 	private String origem;
 	private String destino;
 	private LocalDate dataInicio;
