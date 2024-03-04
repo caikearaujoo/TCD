@@ -8,8 +8,8 @@ public class Cliente extends Pessoa {
 	private LocalDate dataCad;
 	private String email;
 	private int numCompras;
-	private ArrayList<Pesquisas> pesquisas;
-	private ArrayList<Compras> compras;
+	private ArrayList<Pesquisas> pesquisas; //Cada cliente terá um ArrayList de pesquisas associada a ele (Extra)
+	private ArrayList<Compras> compras; //Cada cliente terá um ArrayList de compras associada a ele (Extra)
 	
 	public Cliente(String nome, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep, String cpf, int diaNasc, int mesNasc, int anoNasc, int diaCad, int mesCad, int anoCad, String email, int numCompras) {
 		super(nome, endLogradouro, endNumero, endBairro, endCidade, endUf, endCep, cpf, diaNasc, mesNasc, anoNasc);
@@ -20,7 +20,7 @@ public class Cliente extends Pessoa {
 		this.compras = new ArrayList<>();
 	}
 	
-	public void transformaEmVip()
+	public void transformaEmVip() //Função feita para transformar um cliente em VIP a partir do número de compras do mesmo
 	{
 		if(numCompras ==20) {
 			ClienteVip clienteVip = new ClienteVip(this, getDataNasc().getDayOfMonth(), getDataNasc().getMonthValue(), getDataNasc().getYear(), getDataCad().getDayOfMonth(), getDataCad().getMonthValue(), getDataCad().getYear());
