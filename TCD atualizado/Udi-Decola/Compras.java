@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.time.LocalTime;
 import java.time.LocalDate; 
 
+// item 1a) Classe feita para realizar buscas e compras de passagens aéreas e diárias de hoteis no udi-decola
 public class Compras {
     private Cliente cliente;
     private double precoTotal;
