@@ -193,7 +193,7 @@ class Hotel extends Empresa // Item 1f) registro de hotéis
 		}
 	}
 
-	public void registrarQuarto(double diariaSdesc, double desconto, double diariaCdesc, int quantidade, String tipo)
+	public void registrarQuarto(double diariaSdesc, double desconto, double diariaCdesc, int quantidade, String tipo) // Item 1g) e 1h)
 	{
         Quarto quarto = new Quarto(diariaSdesc,desconto,quantidade,tipo); //Função feita para o registro de quartos pelo hotel.
         this.quartos.add(quarto);
