@@ -1,6 +1,6 @@
 
 class CompanhiaAerea extends Empresa{
-	private static double taxaUdi = 50.00; // Item 1q) Valor fixo pago pela companhia aérea
+	private static double taxaUdi = 50.00; // Item 1q) Valor fixo pago pela companhia aérea, Item 5
 
 	//item 1c) cadastro de companhias aéreas
 	public CompanhiaAerea(String CNPJ, String nome, String nomeDivulg, String endLogradouro, int diaCria, int mesCria,
