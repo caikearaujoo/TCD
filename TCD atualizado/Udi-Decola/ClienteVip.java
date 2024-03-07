@@ -2,9 +2,10 @@ package udidecola;
 
 import java.time.LocalDate;
 
+// item 1K: classe de clientes vip
 // item 4: cliente vip é subclasse de cliente
 public class ClienteVip extends Cliente {
-	private static double descontoVip = 0.20; // item 1K: desconto de cliente vip
+	private static double descontoVip = 0.20;
 	private LocalDate dataVip;
 
 	// item 3D: construtor criado por nós
