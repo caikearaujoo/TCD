@@ -51,7 +51,7 @@ public class Cliente extends Pessoa {
 		}
 	}
 
-	public void efetivarCompraVoo(Compras compra) {
+	public void efetivarCompraVoo(Compras compra) { //Item 1M) realização e registro de compra
 
 		this.compras.add(compra);
 
@@ -61,7 +61,7 @@ public class Cliente extends Pessoa {
 
 	}
 
-	public void efetivarCompraQuarto(Compras compra) {
+	public void efetivarCompraQuarto(Compras compra) { //Item 1M) realização e registro de compra
 
 		this.compras.add(compra);
 
@@ -70,8 +70,8 @@ public class Cliente extends Pessoa {
 		double taxaQuarto = compra.calcularTaxaQuarto();
 
 	}
-
-	public void adicionarCompra(Compras compra) {
+ 
+	public void adicionarCompra(Compras compra) { //Item 1M) realização e registro de compra
 		this.compras.add(compra);
 		numCompras++;
 	}
