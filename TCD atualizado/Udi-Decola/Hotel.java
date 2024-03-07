@@ -4,9 +4,9 @@ import java.util.Date;
 import java.time.LocalTime;
 import java.util.Calendar;
 
-class Hotel extends Empresa
+class Hotel extends Empresa // Item 1f) registro de hotéis
 {
-
+	// Item 1f) atributos do hotel
 	private int numEstrelas;
 	private boolean accPet;
 	private int numQuartos;
@@ -20,7 +20,7 @@ class Hotel extends Empresa
 	private Quarto qstandartD;
 	private Quarto qstandartT;
 	private Date dataPoliticaCancelamento;
-    private boolean cancelamentoAceito;
+	private boolean cancelamentoAceito;
     
 	public LocalTime getHoraCheckin() {
 		return horaCheckin;
@@ -216,7 +216,7 @@ class Hotel extends Empresa
 		else this.desc = null;
 	}
 
-	//Construtor
+	// Item 1f) cadastro de hotéis parceiros
 	public Hotel(String CNPJ, String nome, String nomeDivulg, String endLogradouro, int diaCria, int mesCria,
 			int anoCria, int endNumero, String endBairro, String endCidade, String endUf, String endCep,int numEstrelas,boolean accPet,int numQuartos,String msgDivulg,String desc,int hCheckin,int minCheckin,int segCheckin,int hCheckout,int minCheckout,int segCheckout) {
 		
