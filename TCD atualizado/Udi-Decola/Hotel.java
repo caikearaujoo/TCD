@@ -200,7 +200,7 @@ class Hotel extends Empresa // Item 1f) registro de hotéis
         
     }
 	
-	 //Item 1g)
+	 //Item 1g) política de cancelamento
 	public boolean CancelamentoAceito(Date data) { //Item 1g) política de cancelamento
 	    Calendar cal1 = Calendar.getInstance();
 	    cal1.setTime(data);
