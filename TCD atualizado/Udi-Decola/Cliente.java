@@ -73,7 +73,7 @@ public class Cliente extends Pessoa {
  
 	public void adicionarCompra(Compras compra) { //Item 1M) realização e registro de compra
 		this.compras.add(compra);
-		numCompras++;
+		numCompras++; // Item 1o) atualização do número de compras após adição a ArrayList
 	}
 
 	public ArrayList<Compras> getCompras() {
