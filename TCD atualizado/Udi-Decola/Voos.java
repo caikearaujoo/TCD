@@ -8,9 +8,10 @@ public class Voos {
 	private LocalDate dataVoo;
 	private LocalTime horaSaida;
 	private LocalTime horaChegada;
-	private int vagas;
+	private int vagas; //item 1e) vagas do udidecola
 	private double preco;
-	
+
+	//item 1e) possibilidade de diferentes horários e trecho e voo são estabelecidos aqui
 	public Voos(int diaVoo,int mesVoo,int anoVoo,int hSaida,int minSaida,int segSaida,int hChegada,int minChegada,int segChegada,int vagas,double preco) {
 		
 		setDataVoo(diaVoo,mesVoo,anoVoo);
@@ -139,7 +140,7 @@ public class Voos {
 		return preco;
 	}
 
-	public void setPreco(int diaVoo,int mesVoo,int anoVoo,double preco) {
+	public void setPreco(int diaVoo,int mesVoo,int anoVoo,double preco) { //Item 1e) variação de preço de passagens de acordo com eventos ou datas do ano
 		
 		double valorAumentado;
 		
