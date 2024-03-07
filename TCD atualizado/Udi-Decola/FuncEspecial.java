@@ -1,9 +1,10 @@
 package udidecola;
 
-// item 4: funcionário especial é subclasse de funcionário do hotel
-public class FuncEspecial extends FuncHotel {
+// item IJ: funcionários responsáveis por parcerias com hoteis
+// item 4: funcionário (que cadastra) hotel é subclasse de funcionário
+public class FuncHotel extends Funcionario {
 	private static double bonusSal;
-	private int hoteisCad;
+	private int hoteisCad; // item IJ: número de hoteis cadastrados
 
 	// item 3D: construtor criado por nós
 	public FuncEspecial(String nome, String endLogradouro, int endNumero, String endBairro, String endCidade,
@@ -41,18 +42,18 @@ public class FuncEspecial extends FuncHotel {
 		this.hoteisCad = hoteisCad;
 	}
 
-	// método para definir bônus salarial dos funcionários especiais
+	// item IJ: método para definir bônus salarial dos funcionários especiais
 	public void definirBonus(double bonus) {
 		setBonusSal(bonus);
 	}
 
-	// item IJ: método para calcular salário do funcionário especial
+	// item IJ: método para calcular salário do funcionário 
 	public double calculaSalario(int numHotelRegistrado) {
 		double salario = getSalarioFixo() + (getSalarioFixo() * bonusSal * hoteisCad);
 		return salario;
 	}
 
-	// método para registro de hoteis
+	// item IJ: método para registro de hoteis
 	public Hotel registraHotel(String CNPJ, String nomeOfi, String nomeDiv, int diaCria, int mesCria, int anoCria,
 			String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep,
 			int numEstrelas, boolean petAceito, int numQuartos, String msgDivulg, String descricao, int hCheckin,
