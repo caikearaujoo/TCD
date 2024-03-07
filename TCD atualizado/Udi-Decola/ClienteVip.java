@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 // item 4: cliente vip é subclasse de cliente
 public class ClienteVip extends Cliente {
-	private static double descontoVip = 0.20;
+	private static double descontoVip = 0.20; // item 1K: desconto de cliente vip
 	private LocalDate dataVip;
 
 	// item 3D: construtor criado por nós
