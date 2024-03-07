@@ -15,7 +15,7 @@ class Hotel extends Empresa // Item 1f) registro de hotéis
 	private LocalTime horaCheckout;
 	private String msgDivulg;
 	private String desc;
-	private final static double taxa = 0.05;
+	private final static double taxa = 0.05; //Item 1p) taxa que será aplicada de acordo com valor para a UdiDecola
 	private Date dataPoliticaCancelamento;
 	private boolean cancelamentoAceito;
 	private ArrayList<Quarto> quartos;
