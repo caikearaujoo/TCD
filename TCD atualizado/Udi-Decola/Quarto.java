@@ -1,4 +1,4 @@
-package udidecola;
+
 
 // classe quarto é uma "classe auxiliar" para hotel
 public class Quarto {
@@ -7,7 +7,18 @@ public class Quarto {
 	private double desconto;
 	private double diariaCdesc;
 	private int quantidade;
-
+	private String tipo;
+	
+	// construtor
+	public Quarto(double diariaSdesc, double desconto, int quantidade,String tipo) {
+		this.diariaSdesc = diariaSdesc;
+		this.diariaCdesc = (diariaSdesc - desconto);
+		this.desconto = desconto;
+		this.quantidade = quantidade;
+		setTipo(tipo);
+	}
+	
+	
 	// getters and setters 
 	public double getDiariaSdesc() {
 		return diariaSdesc;
@@ -41,11 +52,30 @@ public class Quarto {
 		this.quantidade = quantidade;
 	}
 
-	// construtor
-	public Quarto(double diariaSdesc, double desconto, int quantidade) {
-		this.diariaSdesc = diariaSdesc;
-		this.diariaCdesc = (diariaSdesc - desconto);
-		this.desconto = desconto;
-		this.quantidade = quantidade;
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		
+		if(tipo == "Single") {
+			this.tipo = "Single";
+		} else {
+			if(tipo == "Standard Single") {
+				this.tipo = "Standard Single";
+			} else {
+				if(tipo=="Standard Duplo") {
+					this.tipo = "Standard Duplo";
+				} else {
+					if(tipo == "Standard Triplo") {
+						this.tipo = "Standard Triplo";
+					} else {
+						this.tipo = null;
+					}
+				}
+			}
+		}
+		
+		
 	}
 }
