@@ -1,12 +1,13 @@
 package udidecola;
 
-// item 4: funcionário do hotel é subclasse de pessoa
-public class FuncHotel extends Pessoa {
+// item 1I: classe de funcionários da empresa
+// item 4: funcionário é subclasse de pessoa
+public class Funcionario extends Pessoa {
 	private String carteiraTrab;
 	private static double salarioFixo;
 
 	// item 3D: construtor criado por nós
-	public FuncHotel(String nome, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf,
+	public Funcionario(String nome, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf,
 			String endCep, String cpf, int diaNasc, int mesNasc, int anoNasc, String carteiraTrab) {
 
 		super(nome, endLogradouro, endNumero, endBairro, endCidade, endUf, endCep, cpf, diaNasc, mesNasc, anoNasc);
