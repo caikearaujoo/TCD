@@ -10,8 +10,10 @@ public class Cliente extends Pessoa {
 	private LocalDate dataCad;
 	private String email;
 	private int numCompras;
-	private ArrayList<Pesquisas> pesquisas; // extra: cada cliente terá um ArrayList de pesquisas associada a ele
-	private ArrayList<Compras> compras; // extra: cada cliente terá um ArrayList de compras associada a ele
+	private ArrayList<Pesquisas> pesquisas; // Item 8a) extra: cada cliente terá um ArrayList de pesquisas associada a ele.
+	//Basicamente todo cliente terá um ArrayList que armazenará as suas pesquisas e compras de forma específica, tornando cada um deles
+	// mais individual ainda, além de facilitar o acesso de histórico tanto de pesquisas quanto de compras.
+	private ArrayList<Compras> compras; // Item 8a) extra: cada cliente terá um ArrayList de compras associada a ele
 
 	// item 3D: construtor criado por nós
 	public Cliente(String nome, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf,
