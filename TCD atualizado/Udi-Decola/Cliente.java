@@ -34,6 +34,7 @@ public class Cliente extends Pessoa {
 	}
 	public void adicionarCompra(Compras compra) {
         this.compras.add(compra);
+	numCompras++;
     }
 
     public ArrayList<Compras> getCompras() {
