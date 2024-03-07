@@ -21,6 +21,7 @@ class Hotel extends Empresa // Item 1f) registro de hotéis
 	private Quarto qstandartT;
 	private Date dataPoliticaCancelamento;
 	private boolean cancelamentoAceito;
+	private ArrayList<Quartos> quartos; //Lista de quartos de cada hotel ( EXTRA )
     
 	public LocalTime getHoraCheckin() {
 		return horaCheckin;
