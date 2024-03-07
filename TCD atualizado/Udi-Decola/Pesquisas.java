@@ -2,7 +2,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Pesquisas {
-	
+
+	//Item 1L) registro das informações, data, hora etc.
 	Cliente cliente; // Cada pesquisa terá exatamente qual cliente a fez, para facilitar no registro.
 	private String origem;
 	private String destino;
