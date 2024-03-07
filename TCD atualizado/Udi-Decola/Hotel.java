@@ -77,9 +77,7 @@ class Hotel extends Empresa // Item 1f) registro de hotéis
 		
 		this.horaCheckout = LocalTime.of(hCheckout, minCheckout, segCheckout);
 	}
-
-
-
+	
 	public Quarto getQluxo() {
 		return qluxo;
 	}
@@ -179,8 +177,6 @@ class Hotel extends Empresa // Item 1f) registro de hotéis
 		return numQuartos;
 	}
 
-
-
 	public void setNumQuartos(int numQuartos) {
 		if(numQuartos>0) this.numQuartos = numQuartos;
 		else this.numQuartos = -1;
@@ -257,7 +253,7 @@ class Hotel extends Empresa // Item 1f) registro de hotéis
     }
 	
     
-
+	 //Item 1g)
 	public boolean CancelamentoAceito(Date data) {
 	    Calendar cal1 = Calendar.getInstance();
 	    cal1.setTime(data);
