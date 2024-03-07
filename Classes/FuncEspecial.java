@@ -1,35 +1,73 @@
-package udidecola;
+package tcd;
 
-public class FuncEspecial extends Funcionario{
-	private static double bonusSal = 0.02;
-	private int numHotelRegistrado = 0; //Ou voce deixa 0 aqui, ou no construtor
+public class FuncEspecial extends FuncHotel {
+	// atributos específicos
+	private static double bonusSal;
+	private int hoteisCad;
 	
-	public FuncEspecial(String nome, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep, String cpf, int diaNasc, int mesNasc, int anoNasc, String carteiraTrab, int hoteisCad, int numHotelRegistrado) {
-		super(nome, endLogradouro, endNumero, endBairro, endCidade, endUf, endCep, cpf, diaNasc, mesNasc, anoNasc, carteiraTrab, hoteisCad);
-		setNumHotelRegistrado(numHotelRegistrado);
+	// construtor completo
+	public FuncEspecial(String nome, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep, 
+			            String cpf, int diaNasc, int mesNasc, int anoNasc, 
+			            String carteiraTrab) {
+		
+		super(nome, endLogradouro, endNumero, endBairro, endCidade, endUf, endCep, 
+			  cpf, diaNasc, mesNasc, anoNasc, 
+			  carteiraTrab);
+		setHoteisCad(0);
 	}
 	
-	public int getNumHotelRegistrado() {
-		return numHotelRegistrado;
+	// construtor com funcionário e data de nascimento
+	public FuncEspecial(FuncHotel f, int diaNasc, int mesNasc, int anoNasc) {
+		super(f.getNome(), f.getEndLogradouro(), f.getEndNumero(), f.getEndBairro(), f.getEndCidade(), f.getEndUf(), f.getEndCep(), 
+			  f.getCpf(), diaNasc, mesNasc, anoNasc, 
+			  f.getCarteiraTrab());
+		
+		setHoteisCad(0);
 	}
 
-	public void setNumHotelRegistrado(int numHotelRegistrado) {
-		if (numHotelRegistrado >= 0) this.numHotelRegistrado = numHotelRegistrado;
-		else this.numHotelRegistrado = -1;
-	}
-
-	public double getBonusSal() {
+	public static double getBonusSal() {
 		return bonusSal;
 	}
-	
+
+	public static void setBonusSal(double bonusSal) {
+		if (bonusSal > 0) FuncEspecial.bonusSal = bonusSal;
+		else FuncEspecial.bonusSal = -1;
+	}
+
+	public int getHoteisCad() {
+		return hoteisCad;
+	}
+
+	public void setHoteisCad(int hoteisCad) {
+		this.hoteisCad = hoteisCad;
+	}
+
+	// método: definir bônus salarial dos funcionários especiais
+	public void definirBonus(double bonus) {
+		setBonusSal(bonus);
+	}
+
+	// método: salário do funcionário especial
 	public double calculaSalario(int numHotelRegistrado) {
-		double salarioTotal = getSalarioFixo() + (getSalarioFixo() * bonusSal * numHotelRegistrado);
-		return salarioTotal;
+		double salario = getSalarioFixo() + (getSalarioFixo() * bonusSal * hoteisCad);
+		return salario;
 	}
 	
-	public Hotel registraHotel(String CNPJ, String nome, String nomeDivulg, int diaCria, int mesCria, int anoCria, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep, int numEstrelas, int accPet, int numQuartos, String msgDivulg, String desc, String cidade, int hCheckin, int minCheckin, int segCheckin, int hCheckout, int minCheckout, int segCheckout) {
-	    Hotel h = new Hotel(CNPJ, nome, nomeDivulg, endLogradouro, diaCria, mesCria, anoCria, endNumero, endBairro, endCidade, endUf, endCep, numEstrelas, accPet, numQuartos, msgDivulg, desc, cidade, hCheckin, minCheckin, segCheckin, hCheckout, minCheckout, segCheckout);
-	    numHotelRegistrado = numHotelRegistrado + 1;
-	    return h;
+	// método: registro de hoteis
+	public Hotel registraHotel(String CNPJ, String nomeOfi, String nomeDiv, 
+			                   int diaCria, int mesCria, int anoCria, 
+			                   String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep, 
+			                   int numEstrelas, boolean petAceito, int numQuartos, String msgDivulg, String descricao,
+			                   int hCheckin,int minCheckin,int segCheckin,
+			      		       int hCheckout,int minCheckout,int segCheckout) {
+		
+		Hotel h = new Hotel(CNPJ, nomeOfi, nomeDiv, 
+				            endLogradouro, diaCria, mesCria, anoCria, endNumero, endBairro, endCidade, endUf, endCep, 
+				            numEstrelas, petAceito, numQuartos, msgDivulg, descricao,
+				            hCheckin, minCheckin, segCheckin,
+			    		    hCheckout, minCheckout, segCheckout);
+		
+		hoteisCad++;
+		return h;
 	}	
 }
