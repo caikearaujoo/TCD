@@ -34,7 +34,7 @@ public class Funcionario extends Pessoa {
 		return salarioFixo;
 	}
 
-	// método para definir salário dos funcionários
+	// item 1I: método para definir salário dos funcionários
 	public void definirSalario(double salario) {
 		setSalarioFixo(salario);
 	}
