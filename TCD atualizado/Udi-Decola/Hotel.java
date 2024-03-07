@@ -184,7 +184,7 @@ class Hotel extends Empresa // Item 1f) registro de hotéis
 		quarto.setQuantidade(qtdQuartos);
 	}
 	
-	public boolean disponibilidadeQuartos(Quarto quarto) { //Item 1g) verificação de quartos disponíveis 
+	public boolean disponibilidadeQuartos(Quarto quarto) { //Item 1g) e 1h) verificação de quartos disponíveis 
 		int qtdQuartos = quarto.getQuantidade();
 		if(qtdQuartos<=0) {
 			return false;
