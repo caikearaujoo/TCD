@@ -3,25 +3,23 @@ package tcd;
 import java.util.Date;
 import java.time.LocalTime;
 import java.util.Calendar;
+import java.util.ArrayList;
 
 class Hotel extends Empresa // Item 1f) registro de hotéis
 {
 	// Item 1f) atributos do hotel
 	private int numEstrelas;
 	private boolean accPet;
-	private int numQuartos;
+	private int numQuartos;  // Número total de quartos do hotel, sem label.
 	private LocalTime horaCheckin;
 	private LocalTime horaCheckout;
 	private String msgDivulg;
 	private String desc;
 	private final static double taxa = 0.05;
-	private Quarto qluxo;
-	private Quarto qstandartS;
-	private Quarto qstandartD;
-	private Quarto qstandartT;
 	private Date dataPoliticaCancelamento;
 	private boolean cancelamentoAceito;
-	private ArrayList<Quartos> quartos; //Lista de quartos de cada hotel ( EXTRA )
+	private ArrayList<Quarto> quartos;
+
     
 	public LocalTime getHoraCheckin() {
 		return horaCheckin;
@@ -79,54 +77,6 @@ class Hotel extends Empresa // Item 1f) registro de hotéis
 		this.horaCheckout = LocalTime.of(hCheckout, minCheckout, segCheckout);
 	}
 	
-	public Quarto getQluxo() {
-		return qluxo;
-	}
-
-
-
-	public void setQluxo(Quarto qluxo) {
-		this.qluxo = qluxo;
-	}
-
-
-
-	public Quarto getQstandartS() {
-		return qstandartS;
-	}
-
-
-
-	public void setQstandartS(Quarto qstandartS) {
-		this.qstandartS = qstandartS;
-	}
-
-
-
-	public Quarto getQstandartD() {
-		return qstandartD;
-	}
-
-
-
-	public void setQstandartD(Quarto qstandartD) {
-		this.qstandartD = qstandartD;
-	}
-
-
-
-	public Quarto getQstandartT() {
-		return qstandartT;
-	}
-
-
-
-	public void setQstandartT(Quarto qstandartT) {
-		this.qstandartT = qstandartT;
-	}
-
-
-
 	public Date getDataPoliticaCancelamento() {
 		return dataPoliticaCancelamento;
 	}
@@ -227,35 +177,31 @@ class Hotel extends Empresa // Item 1f) registro de hotéis
 		setHoraCheckin(hCheckin,minCheckin,segCheckin);
 		setHoraCheckout(hCheckout,minCheckout,segCheckout);
 	}
+	
+	public void alugouQuarto(Quarto quarto) {
+		int qtdQuartos = quarto.getQuantidade();
+		qtdQuartos--;
+		quarto.setQuantidade(qtdQuartos);
+	}
+	
+	public boolean disponibilidadeQuartos(Quarto quarto) { //Item 1g) verificação de quartos disponíveis 
+		int qtdQuartos = quarto.getQuantidade();
+		if(qtdQuartos<=0) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 
-	
-	
-	public void registrarQuarto(double diariaSdesc, double desconto, double diariaCdesc, int quantidade, int opcao)
+	public void registrarQuarto(double diariaSdesc, double desconto, double diariaCdesc, int quantidade, String tipo)
 	{
-        Quarto quarto = new Quarto(diariaSdesc, desconto,quantidade); //Função feita para o registro de quartos pelo hotel.
+        Quarto quarto = new Quarto(diariaSdesc,desconto,quantidade,tipo); //Função feita para o registro de quartos pelo hotel.
+        this.quartos.add(quarto);
         
-        switch (opcao) 
-        {
-            case 1:
-                qluxo = quarto;
-                break;
-            case 2:
-                qstandartS = quarto;
-                break;
-            case 3:
-                qstandartD = quarto;
-                break;
-            case 4:
-                qstandartT = quarto;
-                break;
-            default:
-                return;
-        }
     }
 	
-    
 	 //Item 1g)
-	public boolean CancelamentoAceito(Date data) {
+	public boolean CancelamentoAceito(Date data) { //Item 1g) política de cancelamento
 	    Calendar cal1 = Calendar.getInstance();
 	    cal1.setTime(data);
 	    
@@ -268,7 +214,7 @@ class Hotel extends Empresa // Item 1f) registro de hotéis
 	           cancelamentoAceito;
 	}
 
-    public void definirPoliticaCancelamento(Date data, boolean cancelamentoAceito) 
+    public void definirPoliticaCancelamento(Date data, boolean cancelamentoAceito) //Item 1g) política de cancelamento
     {
         this.dataPoliticaCancelamento = data;
         this.cancelamentoAceito = cancelamentoAceito;
