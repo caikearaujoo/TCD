@@ -3,7 +3,7 @@ package udidecola;
 // item IJ: funcionários responsáveis por parcerias com hoteis
 // item 4: funcionário (que cadastra) hotel é subclasse de funcionário
 public class FuncHotel extends Funcionario {
-	private static double bonusSal;
+	private static double bonusSal; //Item 5
 	private int hoteisCad; // item IJ: número de hoteis cadastrados
 
 	// item 3D: construtor criado por nós
