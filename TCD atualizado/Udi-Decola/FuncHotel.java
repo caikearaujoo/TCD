@@ -1,21 +1,19 @@
 package udidecola;
 
+// item 4: funcionário do hotel é subclasse de pessoa
 public class FuncHotel extends Pessoa {
 	private String carteiraTrab;
 	private static double salarioFixo;
-	
-	// construtor (item 3D)
-	public FuncHotel(String nome, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf, String endCep, 
-		             String cpf, int diaNasc, int mesNasc, int anoNasc,
-		             String carteiraTrab) {
-		
-		super(nome, endLogradouro, endNumero, endBairro, endCidade, endUf, endCep, 
-			  cpf, diaNasc, mesNasc, anoNasc);
-		
+
+	// item 3D: construtor criado por nós
+	public FuncHotel(String nome, String endLogradouro, int endNumero, String endBairro, String endCidade, String endUf,
+			String endCep, String cpf, int diaNasc, int mesNasc, int anoNasc, String carteiraTrab) {
+
+		super(nome, endLogradouro, endNumero, endBairro, endCidade, endUf, endCep, cpf, diaNasc, mesNasc, anoNasc);
+
 		setCarteiraTrab(carteiraTrab);
 	}
 
-	// getters e setters
 	public String getCarteiraTrab() {
 		return carteiraTrab;
 	}
@@ -25,15 +23,17 @@ public class FuncHotel extends Pessoa {
 	}
 
 	public static void setSalarioFixo(double salarioFixo) {
-		if (salarioFixo > 0) FuncHotel.salarioFixo = salarioFixo;
-		else FuncHotel.salarioFixo = -1;
+		if (salarioFixo > 0)
+			FuncHotel.salarioFixo = salarioFixo;
+		else
+			FuncHotel.salarioFixo = -1;
 	}
 
 	public double getSalarioFixo() {
 		return salarioFixo;
 	}
 
-	// método: definir salário dos funcionários
+	// método para definir salário dos funcionários
 	public void definirSalario(double salario) {
 		setSalarioFixo(salario);
 	}
