@@ -3,6 +3,7 @@ package udidecola;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+// item 1K: classe de clientes
 // item 4: cliente é subclasse de pessoa
 public class Cliente extends Pessoa {
 
