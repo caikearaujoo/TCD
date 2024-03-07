@@ -155,7 +155,7 @@ public class Compras {
         this.listaVoos = listaVoos;
     }
     
-    public double calculaPreco()
+    public double calculaPreco() //Item 6, função usada pra cálculo final do preço
     {
     	precoTotal = 0.0;
     	
