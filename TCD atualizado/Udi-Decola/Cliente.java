@@ -51,7 +51,7 @@ public class Cliente extends Pessoa {
 		}
 	}
 
-	public void efetivarCompraVoo(Compras compra) { //Item 1M) realização e registro de compra
+	public void efetivarCompraVoo(Compras compra) { //Item 1M) realização e registro de compra e Item 5
 
 		this.compras.add(compra);
 
@@ -61,7 +61,7 @@ public class Cliente extends Pessoa {
 
 	}
 
-	public void efetivarCompraQuarto(Compras compra) { //Item 1M) realização e registro de compra
+	public void efetivarCompraQuarto(Compras compra) { //Item 1M) realização e registro de compra e Item 5
 
 		this.compras.add(compra);
 
@@ -71,7 +71,7 @@ public class Cliente extends Pessoa {
 
 	}
  
-	public void adicionarCompra(Compras compra) { //Item 1M) realização e registro de compra
+	public void adicionarCompra(Compras compra) { //Item 1M) realização e registro de compra e Item 5
 		this.compras.add(compra);
 		numCompras++; // Item 1o) atualização do número de compras após adição a ArrayList
 	}
