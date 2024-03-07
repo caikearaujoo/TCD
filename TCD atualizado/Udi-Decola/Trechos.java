@@ -9,7 +9,7 @@ public class Trechos {
 	private LocalTime horaSaida;
 	private LocalTime horaChegada;
 	private CompanhiaAerea nomeCompA; //Associa trecho a companhia de forma direta :)
-	private ArrayList<Voos> voos; //Voo específico do trecho
+	private ArrayList<Voos> voos; //Voo específico do trecho ( Item 1d) registro de voos de cada trecho))
 	
 	//item 1b) cadastro dos trechos de voos disponíveis
 	public Trechos(String cod,String origem,String destino,int hSaida,int minSaida,int segSaida,int hChegada,int minChegada,int segChegada,CompanhiaAerea nomeCompA) {
