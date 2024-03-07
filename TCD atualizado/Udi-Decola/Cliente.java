@@ -38,7 +38,7 @@ public class Cliente extends Pessoa {
 
 	// item 1K: método que transforma um cliente em vip a partir do seu número de compras
 	public void transformaEmVip() {
-		if (numCompras == 20) {
+		if (numCompras == 20) { //Item 5
 			ClienteVip clienteVip = new ClienteVip(this, getDataNasc().getDayOfMonth(), getDataNasc().getMonthValue(),
 					getDataNasc().getYear(), getDataCad().getDayOfMonth(), getDataCad().getMonthValue(),
 					getDataCad().getYear());
