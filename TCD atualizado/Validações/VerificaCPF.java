@@ -5,6 +5,7 @@ package validacoes; // pacote criado para guardar as verificações de cpf e de 
 
 import java.util.InputMismatchException;
 
+// item 2A: validação de cpf
 public class VerificaCPF {
 	public static boolean isCPF(String CPF) {
 		// considera-se erro CPFs formados por uma sequência de números iguais
