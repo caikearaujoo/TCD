@@ -11,6 +11,7 @@ public class Trechos {
 	private CompanhiaAerea nomeCompA; //Associa trecho a companhia de forma direta :)
 	private ArrayList<Voos> voos; //Voo específico do trecho
 	
+	//item 1b) cadastro dos trechos de voos disponíveis
 	public Trechos(String cod,String origem,String destino,int hSaida,int minSaida,int segSaida,int hChegada,int minChegada,int segChegada,CompanhiaAerea nomeCompA) {
 		
 		setCod(cod);
