@@ -18,8 +18,9 @@ public class Compras {
     {
     	setCliente(cliente);
     }
-    
-    public Compras (Cliente cliente, Voos voo, int diaCompra, int mesCompra, int anoCompra, int hCompra, int minCompra, int segCompra) {
+
+	
+    public Compras (Cliente cliente, Voos voo, int diaCompra, int mesCompra, int anoCompra, int hCompra, int minCompra, int segCompra) { //Item 1M) criação de compras
     	setCliente(cliente);
     	adicionarVoo(voo);
     	setDataCompra(diaCompra, mesCompra, anoCompra);
