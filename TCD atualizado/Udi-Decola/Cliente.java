@@ -32,6 +32,26 @@ public class Cliente extends Pessoa {
 			}
 		}
 	}
+	public void efetivarCompraVoo(Compras compra) {
+		
+		this.compras.add(compra);
+		
+		transformaEmVip(); // Se ele conseguir virar VIP, ele vira :)
+		
+		double taxaVoo = compra.calcularTaxaVoo();
+			
+	}
+	
+	public void efetivarCompraQuarto(Compras compra) {
+		
+		this.compras.add(compra);
+		
+		transformaEmVip(); // Se ele conseguir virar VIP, ele vira :)
+		
+		double taxaQuarto = compra.calcularTaxaQuarto();
+		
+	}
+
 	public void adicionarCompra(Compras compra) {
         this.compras.add(compra);
 	numCompras++;
