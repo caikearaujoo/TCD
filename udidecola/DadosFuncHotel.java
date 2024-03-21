@@ -8,7 +8,7 @@ public class DadosFuncHotel {
 
 	// cadastrar (inserir no array)
 	public boolean cadastrarFuncHotel(FuncHotel fh) {
-		if (consultarFuncHotel(fh)) {
+		if (consultarFuncHotel(fh.getCpf())) {
 			return false;
 		}
 		this.funcsHotel.add(fh);
@@ -16,18 +16,20 @@ public class DadosFuncHotel {
 	}
 
 	// consultar (buscar no array)
-	public boolean consultarFuncHotel(FuncHotel fh) {
+	public boolean consultarFuncHotel(String cpf) {
 		for (int i = 0; i < funcsHotel.size(); i++) {
-			if (fh == funcsHotel.get(i))
+			FuncHotel temp = funcsHotel.get(i);
+			if (cpf == temp.getCpf())
 				return true;
 		}
 		return false;
 	}
 
 	// remover (retirar do array)
-	public boolean removerFuncHotel(FuncHotel fh) {
+	public boolean removerFuncHotel(String cpf) {
 		for (int i = 0; i < funcsHotel.size(); i++) {
-			if (fh == funcsHotel.get(i)) {
+			FuncHotel temp = funcsHotel.get(i);
+			if (cpf == temp.getCpf()) {
 				funcsHotel.remove(i);
 				return true;
 			}
