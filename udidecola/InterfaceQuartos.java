@@ -14,7 +14,7 @@ public class InterfaceQuartos extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextField txtMenuDoHotel;
+	private JTextField txtQuartos;
 	public InterfaceQuartos() {
 		
 		JPanel panel = new JPanel();
