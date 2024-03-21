@@ -8,7 +8,7 @@ public class DadosCliente {
 
 	// cadastrar (inserir no array)
 	public boolean cadastrarCliente(Cliente c) {
-		if (consultarCliente(c)) {
+		if (consultarCliente(c.getCpf())) {
 			return false;
 		}
 		this.clientes.add(c);
@@ -16,18 +16,20 @@ public class DadosCliente {
 	}
 
 	// consultar (buscar no array)
-	public boolean consultarCliente(Cliente c) {
+	public boolean consultarCliente(String cpf) {
 		for (int i = 0; i < clientes.size(); i++) {
-			if (c == clientes.get(i))
+			Cliente temp = clientes.get(i);
+			if (cpf == temp.getCpf())
 				return true;
 		}
 		return false;
 	}
 
 	// remover (retirar do array)
-	public boolean removerCliente(Cliente c) {
+	public boolean removerCliente(String cpf) {
 		for (int i = 0; i < clientes.size(); i++) {
-			if (c == clientes.get(i)) {
+			Cliente temp = clientes.get(i);
+			if (cpf == temp.getCpf()) {
 				clientes.remove(i);
 				return true;
 			}
