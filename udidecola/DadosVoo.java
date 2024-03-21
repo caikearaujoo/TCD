@@ -2,7 +2,7 @@ package tcd;
 
 import java.util.ArrayList;
 
-public class DadosVoos {
+public class DadosVoo {
 	private ArrayList<Voos> Vooss;
 	
 	public ArrayList<Voos> getVooss() {
