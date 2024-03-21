@@ -8,7 +8,7 @@ public class DadosFuncionario {
 
 	// cadastrar (inserir no array)
 	public boolean cadastrarFuncionario(Funcionario f) {
-		if (consultarFuncionario(f)) {
+		if (consultarFuncionario(f.getCpf())) {
 			return false;
 		}
 		this.funcionarios.add(f);
@@ -16,18 +16,20 @@ public class DadosFuncionario {
 	}
 
 	// consultar (buscar no array)
-	public boolean consultarFuncionario(Funcionario f) {
+	public boolean consultarFuncionario(String cpf) {
 		for (int i = 0; i < funcionarios.size(); i++) {
-			if (f == funcionarios.get(i))
+			Funcionario temp = funcionarios.get(i);
+			if (cpf == temp.getCpf())
 				return true;
 		}
 		return false;
 	}
 
 	// remover (retirar do array)
-	public boolean removerFuncionario(Funcionario f) {
+	public boolean removerFuncionario(String cpf) {
 		for (int i = 0; i < funcionarios.size(); i++) {
-			if (f == funcionarios.get(i)) {
+			Funcionario temp = funcionarios.get(i);
+			if (cpf == temp.getCpf()) {
 				funcionarios.remove(i);
 				return true;
 			}
