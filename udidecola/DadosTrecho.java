@@ -2,7 +2,7 @@ package tcd;
 
 import java.util.ArrayList;
 
-public class DadosTrechos {
+public class DadosTrecho {
 	
 	private ArrayList<Trechos> trechos;
 	
