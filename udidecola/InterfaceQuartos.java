@@ -28,8 +28,8 @@ public class InterfaceQuartos extends JFrame {
 		
 		txtQuartos = new JTextField();
 		txtQuartos.setHorizontalAlignment(SwingConstants.CENTER);
-		txtQuartos.setText("Menu do Hotel");
-		GridBagConstraints gbc_txtMenuDoHotel = new GridBagConstraints();
+		txtQuartos.setText("Quartos");
+		GridBagConstraints gbc_txtQuartos = new GridBagConstraints();
 		gbc_txtQuartos.anchor = GridBagConstraints.NORTH;
 		gbc_txtQuartos.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txtQuartos.insets = new Insets(0, 0, 5, 0);
