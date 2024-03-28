@@ -5,6 +5,9 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+import tratadores.TrataBotaoClienteCad;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
@@ -135,5 +138,7 @@ public class JanelaClienteCad extends JFrame {
 		JButton btnFinalizar = new JButton("Concluído");
 		btnFinalizar.setBounds(321, 226, 89, 23);
 		panel.add(btnFinalizar);
+		TrataBotaoClienteCad tratador = new TrataBotaoClienteCad(btnFinalizar, this);
+		btnFinalizar.addActionListener(tratador);
 	}
 }
