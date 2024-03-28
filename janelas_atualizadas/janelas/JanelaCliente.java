@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 
 public class JanelaCliente extends JFrame {
+	public JanelaClienteCad janelaClienteCad;
 	public JanelaCliente() {
 		JPanel panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.CENTER);
@@ -21,18 +22,19 @@ public class JanelaCliente extends JFrame {
 		lblMenu.setBounds(10, 30, 414, 33);
 		panel.add(lblMenu);
 		
-		JanelaClienteCad janelaClienteCad = new JanelaClienteCad();
-		JanelaClienteCon janelaClienteCon = new JanelaClienteCon();
-		JanelaClienteRem janelaClienteRem = new JanelaClienteRem();
+		janelaClienteCad = new JanelaClienteCad();
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
 		
-		TrataBotaoCliente tratador = new TrataBotaoCliente(btnCadastrar, janelaClienteCad, this, janelaClienteCon, janelaClienteRem);
+		TrataBotaoCliente tratador = new TrataBotaoCliente(btnCadastrar, getJanelaClienteCad(), this);
 		btnCadastrar.addActionListener(tratador);
 		btnCadastrar.setBounds(175, 107, 81, 23);
 		btnCadastrar.addActionListener(tratador);
 		panel.add(btnCadastrar);
 	}
 	
+	 public JanelaClienteCad getJanelaClienteCad() {
+	        return janelaClienteCad;
+	    }
+	
 }
-
